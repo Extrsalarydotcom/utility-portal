@@ -4,12 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="d6MtKQXJvde0u_oPsSvnkRxMbT5l9IIQo-BUjjWpZwU" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
   <title>जन सुविधा केंद्र - सरकारी सेवाएं, ट्रेवल बुकिंग, Extrasalary स्टोर व लाइव मार्केट</title>
   <meta name="description" content="सरकारी योजनाएं, ट्रेन/बस/होटल बुकिंग, ExtrasalaryDotcom डिजिटल स्टोर, आयुष्मान कार्ड, ई-पैन, लाइव मार्केट रेट और स्मार्ट वित्तीय कैलकुलेटर का संपूर्ण ऑल-इन-वन पोर्टल।" />
-  
+
+  <!-- एंटी-क्लिकजैकिंग सुरक्षा -->
+  <script>
+    if (window.top !== window.self) {
+      window.top.location = window.self.location;
+    }
+  </script>
+
+  <!-- Open Graph & Social Preview Meta Tags -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="जन सुविधा केंद्र - सरकारी सेवाएं, ट्रेवल बुकिंग व टूल्स" />
+  <meta property="og:description" content="ट्रेन, बस, होटल बुकिंग, सरकारी योजनाओं की गाइड, लाइव शेयर मार्केट और वित्तीय कैलकुलेटर एक ही पोर्टल पर।" />
+  <meta property="og:url" content="https://extrasalarydotcom.github.io/utility-portal/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts (Hind & Poppins) -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
@@ -39,12 +54,12 @@
   </script>
   <style>
     .glassmorphism {
-      background: rgba(255, 255, 255, 0.88);
+      background: rgba(255, 255, 255, 0.92);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
     }
     .dark .glassmorphism {
-      background: rgba(15, 23, 42, 0.88);
+      background: rgba(15, 23, 42, 0.92);
     }
     .slider { accent-color: #4f46e5; }
     .modal-active { overflow: hidden; }
@@ -58,7 +73,7 @@
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       <div class="flex items-center space-x-2 truncate">
         <span class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">नया अपडेट</span>
-        <span class="truncate">पीएम सूर्य घर, ट्रेन/बस तत्काल बुकिंग, Extrasalary स्टोर व आयुष्मान भारत 2026 सेवाएं लाइव!</span>
+        <span class="truncate">पीएम सूर्य घर, ट्रेन/बस तत्काल बुकिंग, Extrasalary स्टोर व आयुष्मान भारत सेवाएं लाइव!</span>
       </div>
       <div class="hidden md:flex items-center space-x-4 text-xs">
         <a href="#travel-booking" class="text-indigo-200 hover:text-white font-semibold flex items-center gap-1"><i class="fa-solid fa-ticket"></i> ट्रेवल टिकट</a>
@@ -109,10 +124,10 @@
         </nav>
 
         <!-- Right Action Buttons -->
-        <div class="flex items-center space-x-3">
-          <a href="https://extrasalarydotcom.github.io/Extrasalary-store/" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl shadow-md shadow-emerald-500/20 transition transform hover:-translate-y-0.5">
+        <div class="flex items-center space-x-2 sm:space-x-3">
+          <a href="https://extrasalarydotcom.github.io/Extrasalary-store/" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 text-white text-xs sm:text-sm font-bold px-3.5 py-2 rounded-xl shadow-md shadow-emerald-500/20 transition transform hover:-translate-y-0.5">
             <i class="fa-solid fa-cart-shopping"></i>
-            <span>Extrasalary स्टोर</span>
+            <span>स्टोर</span>
           </a>
 
           <!-- Dark Mode Toggle -->
@@ -120,12 +135,35 @@
             <i class="fa-solid fa-moon text-sm dark:hidden"></i>
             <i class="fa-solid fa-sun text-sm hidden dark:block text-amber-400"></i>
           </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="mobileMenuBtn" aria-label="Open Mobile Menu" class="lg:hidden p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none">
+            <i class="fa-solid fa-bars text-lg"></i>
+          </button>
         </div>
       </div>
     </div>
+
+    <!-- Mobile Drawer Navigation -->
+    <div id="mobileMenu" class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 px-4 py-3 space-y-2.5 font-medium text-sm bg-white dark:bg-slate-900 shadow-xl">
+      <a href="#services" onclick="toggleMobileMenu()" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-brand-600">🏛️ सरकारी सेवाएं</a>
+      <a href="#travel-booking" onclick="toggleMobileMenu()" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-brand-600">🎫 ट्रेवल बुकिंग (ट्रेन, बस, होटल)</a>
+      <a href="#store-section" onclick="toggleMobileMenu()" class="block py-1.5 text-emerald-600 dark:text-emerald-400 font-bold">🛍️ Extrasalary स्टोर</a>
+      <a href="#markets" onclick="toggleMobileMenu()" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-brand-600">📈 लाइव मार्केट & चार्ट</a>
+      <a href="#calculator" onclick="toggleMobileMenu()" class="block py-1.5 text-slate-700 dark:text-slate-200 hover:text-brand-600">🧮 स्मार्ट कैलकुलेटर (EMI/SIP/Age)</a>
+      <a href="#emergency" onclick="toggleMobileMenu()" class="block py-1.5 text-rose-600 font-bold">🚨 इमरजेंसी हेल्पलाइन</a>
+    </div>
   </header>
 
-  <!-- ================= 3. हीरो सेक्शन (Hero Section with Live Search) ================= -->
+  <!-- ================= सुरक्षा चेतावनी बैनर ================= -->
+  <aside aria-label="सुरक्षा सूचना" class="bg-amber-500/10 border-b border-amber-500/20 py-2 px-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-center gap-2 text-center text-xs text-amber-800 dark:text-amber-300 font-medium">
+      <i class="fa-solid fa-shield-triangle-exclamation text-amber-600 dark:text-amber-400"></i>
+      <span><strong>सुरक्षा सूचना:</strong> जनसुविधाHub कभी भी किसी योजना या सहायता के बदले फोन/व्हाट्सएप पर OTP, पासवर्ड या फीस नहीं मांगता। धोखाधड़ी से सावधान रहें।</span>
+    </div>
+  </aside>
+
+  <!-- ================= 3. हीरो सेक्शन ================= -->
   <section class="relative pt-12 pb-16 overflow-hidden bg-gradient-to-b from-brand-50/70 via-white to-slate-50 dark:from-slate-900 dark:via-slate-950 dark:to-slate-950">
     <div class="max-w-4xl mx-auto px-4 text-center">
       <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300 border border-brand-200 dark:border-brand-800 mb-4">
@@ -136,7 +174,7 @@
         <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 via-indigo-600 to-purple-600">हर समाधान एक ही जगह</span>
       </h1>
       <p class="mt-4 text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-        ट्रेन टिकट, बस, होटल बुकिंग, Extrasalary स्टोर टूल्स, आधार अपडेट, आयुष्मान कार्ड, सोलर रूफटॉप और लाइव मार्केट की संपूर्ण सुविधा।
+        ट्रेन टिकट, बस, होटल बुकिंग, Extrasalary स्टोर टूल्स, आयुष्मान कार्ड, सोलर रूफटॉप और लाइव मार्केट की संपूर्ण सुविधा।
       </p>
 
       <!-- Live Search Box -->
@@ -146,7 +184,7 @@
           <input 
             type="text" 
             id="serviceSearch" 
-            placeholder="आज आपको क्या मदद चाहिए? (उदा. स्टोर, ट्रेन, बस, होटल, आधार, आयुष्मान...)" 
+            placeholder="आज आपको क्या मदद चाहिए? (उदा. स्टोर, ट्रेन, बस, होटल, आयुष्मान...)" 
             class="w-full pl-12 pr-28 py-4 bg-white dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 rounded-2xl text-slate-900 dark:text-white placeholder-slate-400 focus:outline-none focus:border-brand-600 text-sm sm:text-base shadow-sm"
             onkeyup="filterServices()"
           />
@@ -162,7 +200,7 @@
           <button onclick="setSearch('ट्रेन')" class="px-2.5 py-1 bg-white dark:bg-slate-800 border rounded-lg hover:border-brand-500 transition">🚆 ट्रेन टिकट</button>
           <button onclick="setSearch('बस')" class="px-2.5 py-1 bg-white dark:bg-slate-800 border rounded-lg hover:border-brand-500 transition">🚌 बस टिकट</button>
           <button onclick="setSearch('होटल')" class="px-2.5 py-1 bg-white dark:bg-slate-800 border rounded-lg hover:border-brand-500 transition">🏨 होटल बुकिंग</button>
-          <button onclick="setSearch('आधार')" class="px-2.5 py-1 bg-white dark:bg-slate-800 border rounded-lg hover:border-brand-500 transition">आधार अपडेट</button>
+          <button onclick="setSearch('आयुष्मान')" class="px-2.5 py-1 bg-white dark:bg-slate-800 border rounded-lg hover:border-brand-500 transition">आयुष्मान कार्ड</button>
         </div>
       </div>
     </div>
@@ -197,18 +235,17 @@
     </div>
   </section>
 
-  <!-- ================= 5. ट्रेवल बुकिंग हब (ट्रेन, बस, होटल) ================= -->
+  <!-- ================= 5. ट्रेवल बुकिंग हब ================= -->
   <section id="travel-booking" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
     <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
       
-      <!-- Top Title Bar -->
       <div class="bg-gradient-to-r from-brand-600 via-indigo-600 to-purple-600 p-6 sm:p-8 text-white text-center">
         <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-xs font-bold uppercase tracking-wider mb-2">
           🚆 🚌 🏨 ऑल-इन-वन बुकिंग सुविधा
         </span>
         <h2 class="text-2xl sm:text-4xl font-black">ट्रेन, बस और होटल बुकिंग केंद्र</h2>
         <p class="text-xs sm:text-sm text-indigo-100 mt-2 max-w-xl mx-auto">
-          सरकारी ट्रेन टिकट (IRCTC), ऑनलाइन बस टिकट और देश-विदेश के सस्ते होटल्स अब एक ही सुरक्षित पोर्टल से बुक करें।
+          सरकारी ट्रेन टिकट (IRCTC), ऑनलाइन बस टिकट और सस्ते होटल्स एक ही सुरक्षित पोर्टल से बुक करें।
         </p>
       </div>
 
@@ -254,9 +291,8 @@
           <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 bg-brand-50/50 dark:bg-brand-950/40 rounded-2xl border border-brand-100 dark:border-brand-900">
             <div class="text-xs text-slate-600 dark:text-slate-400">
               <span class="font-bold text-slate-800 dark:text-white block sm:inline">⚡ लाइव सीट उपलब्धता व तत्काल टिकट:</span>
-              ConfirmTkt और Ixigo पार्टनर नेटवर्क के माध्यम से 100% कन्फर्म सीट सर्च करें।
+              ConfirmTkt और पार्टनर नेटवर्क के माध्यम से कन्फर्म सीट चेक करें।
             </div>
-            <!-- Train Affiliate Link -->
             <a href="https://bitli.in/Wj4D6tI" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold text-sm rounded-xl shadow-md shadow-brand-500/20 transition transform hover:-translate-y-0.5 flex-shrink-0">
               <i class="fa-solid fa-magnifying-glass"></i> ट्रेन खोजें व टिकट बनाएं
             </a>
@@ -288,10 +324,9 @@
 
           <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 bg-emerald-50/50 dark:bg-emerald-950/40 rounded-2xl border border-emerald-100 dark:border-emerald-900">
             <div class="text-xs text-slate-600 dark:text-slate-400">
-              <span class="font-bold text-slate-800 dark:text-white block sm:inline">🚌 RedBus और सरकारी वोल्वो/स्लीपर बसें:</span>
-              GSRTC, UPSRTC, RSRTC और प्राइवेट वोल्वो बसों में मनपसंद सीट बुक करें।
+              <span class="font-bold text-slate-800 dark:text-white block sm:inline">🚌 RedBus और वोल्वो/स्लीपर बसें:</span>
+              GSRTC, UPSRTC, RSRTC और प्राइवेट बसों में सीट बुक करें।
             </div>
-            <!-- Bus Affiliate Link -->
             <a href="https://bitli.in/SBKz7hM" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-sm rounded-xl shadow-md shadow-emerald-500/20 transition transform hover:-translate-y-0.5 flex-shrink-0">
               <i class="fa-solid fa-bus-simple"></i> बस टिकट खोजें
             </a>
@@ -325,10 +360,9 @@
           <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-4 bg-amber-50/50 dark:bg-amber-950/40 rounded-2xl border border-amber-100 dark:border-amber-900">
             <div class="text-xs text-slate-600 dark:text-slate-400">
               <span class="font-bold text-slate-800 dark:text-white block sm:inline">🏨 Agoda & Booking.com बेस्ट रेट गारंटी:</span>
-              सबसे सस्ते बजट होटल और लक्जरी रिसॉर्ट्स पर 60% तक की छूट पाएं।
+              किफायती बजट होटल और लक्जरी रिसॉर्ट्स सीधे खोजें।
             </div>
-            <!-- Hotel Affiliate Link -->
-            <a href="https://bitli.in/fttC8kz"_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm rounded-xl shadow-md shadow-amber-500/20 transition transform hover:-translate-y-0.5 flex-shrink-0">
+            <a href="https://bitli.in/fttC8kz" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-amber-600 hover:bg-amber-700 text-white font-bold text-sm rounded-xl shadow-md shadow-amber-500/20 transition transform hover:-translate-y-0.5 flex-shrink-0">
               <i class="fa-solid fa-bed"></i> होटल रूम खोजें
             </a>
           </div>
@@ -351,11 +385,10 @@
     </div>
   </section>
 
-  <!-- ================= 6. EXTRASALARYDOTCOM डिजिटल स्टोर (शोकेस) ================= -->
+  <!-- ================= 6. EXTRASALARYDOTCOM डिजिटल स्टोर ================= -->
   <section id="store-section" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-14">
     <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border-2 border-amber-400/40 shadow-2xl p-6 sm:p-10 text-white">
       
-      <!-- Background Glow Effect -->
       <div class="absolute -right-20 -top-20 w-80 h-80 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
       <div class="absolute -left-20 -bottom-20 w-80 h-80 bg-amber-500/20 rounded-full blur-3xl pointer-events-none"></div>
 
@@ -381,10 +414,7 @@
           </div>
         </div>
 
-        <!-- 3 Featured Store Items Grid -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-          
-          <!-- Store Item 1 -->
           <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-5 backdrop-blur-md transition flex flex-col justify-between">
             <div>
               <div class="w-10 h-10 rounded-xl bg-amber-400/20 text-amber-400 flex items-center justify-center text-lg mb-3">
@@ -398,7 +428,6 @@
             </a>
           </div>
 
-          <!-- Store Item 2 -->
           <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-5 backdrop-blur-md transition flex flex-col justify-between">
             <div>
               <div class="w-10 h-10 rounded-xl bg-emerald-400/20 text-emerald-400 flex items-center justify-center text-lg mb-3">
@@ -412,7 +441,6 @@
             </a>
           </div>
 
-          <!-- Store Item 3 -->
           <div class="bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl p-5 backdrop-blur-md transition flex flex-col justify-between">
             <div>
               <div class="w-10 h-10 rounded-xl bg-indigo-400/20 text-indigo-400 flex items-center justify-center text-lg mb-3">
@@ -421,20 +449,17 @@
               <h3 class="font-bold text-base text-white mb-1">फाइनेंशियल फ्रीडम ब्लूप्रिंट</h3>
               <p class="text-xs text-slate-300 leading-relaxed mb-4">वेल्थ क्रिएशन और वित्तीय आज़ादी हासिल करने का संपूर्ण फ्रेमवर्क।</p>
             </div>
-            <a href="https://extrsalarydotcom.github.io/Financial-Freedom-Blueprint/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 font-bold text-xs flex items-center gap-1">
+            <a href="https://extrasalarydotcom.github.io/Financial-Freedom-Blueprint/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-indigo-300 font-bold text-xs flex items-center gap-1">
               ब्लूप्रिंट प्राप्त करें <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
             </a>
           </div>
-
         </div>
       </div>
-
     </div>
   </section>
 
   <!-- ================= 7. लाइव मार्केट डैशबोर्ड ================= -->
   <section id="markets" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
-    
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-6">
       <div>
         <span class="inline-flex items-center gap-1 text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950 px-2.5 py-1 rounded-md mb-2">
@@ -545,84 +570,81 @@
       </div>
     </div>
 
+    <!-- ट्रेडिंग और मार्केट हब (न्यूज़ & इकोनॉमिक कैलेंडर विजेट्स) -->
+    <div class="mt-10 mb-6 w-full">
+      <div class="mb-5">
+        <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+          <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+            <i class="fa-solid fa-chart-line"></i>
+          </span>
+          भारतीय बाज़ार लाइव न्यूज़ & इकोनॉमिक कैलेंडर
+        </h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">24x7 ऑटोमैटिक लाइव अपडेट्स - TradingView द्वारा संचालित</p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- Stock News Widget -->
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-950 text-rose-600 flex items-center justify-center font-bold text-sm">
+              <i class="fa-regular fa-newspaper"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">इंडियन स्टॉक मार्केट न्यूज़</h3>
+          </div>
+          <div class="rounded-xl overflow-hidden">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+              {
+                "feedMode": "market",
+                "market": "stock",
+                "isTransparent": true,
+                "displayMode": "regular",
+                "width": "100%",
+                "height": 480,
+                "colorTheme": "dark",
+                "locale": "en_IN"
+              }
+              </script>
+            </div>
+          </div>
+        </div>
+
+        <!-- Economic Calendar Widget -->
+        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
+          <div class="flex items-center gap-2 mb-3">
+            <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950 text-amber-600 flex items-center justify-center font-bold text-sm">
+              <i class="fa-regular fa-calendar-days"></i>
+            </div>
+            <h3 class="font-bold text-slate-900 dark:text-white text-sm">आर्थिक इवेंट्स & RBI दरें (Calendar)</h3>
+          </div>
+          <div class="rounded-xl overflow-hidden">
+            <div class="tradingview-widget-container">
+              <div class="tradingview-widget-container__widget"></div>
+              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+              {
+                "width": "100%",
+                "height": 480,
+                "colorTheme": "dark",
+                "isTransparent": true,
+                "locale": "en_IN",
+                "importanceFilter": "0,1",
+                "currencyFilter": "INR,USD,EUR"
+              }
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Financial Disclaimer Box -->
     <div class="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 text-center leading-relaxed">
       <strong>⚠️ वित्तीय जोखिम सूचना:</strong> यहाँ प्रदर्शित मार्केट डेटा केवल शैक्षणिक व सूचनात्मक उद्देश्यों के लिए है। निवेश से पहले अपने प्रमाणित वित्तीय सलाहकार से परामर्श अवश्य लें।
-      <!-- ================= ट्रेडिंग और मार्केट हब (India News + Economic Calendar) ================= -->
-<section class="mt-10 mb-10 w-full">
-  <div class="mb-5">
-    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
-      <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
-        <i class="fa-solid fa-chart-line"></i>
-      </span>
-      भारतीय बाज़ार लाइव न्यूज़ & इकोनॉमिक कैलेंडर
-    </h2>
-    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">24x7 ऑटोमैटिक लाइव अपडेट्स - TradingView द्वारा संचालित</p>
-  </div>
-
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-    
-    <!-- 1. भारतीय मार्केट न्यूज़ विजेट -->
-    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
-      <div class="flex items-center gap-2 mb-3">
-        <div class="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-950 text-rose-600 flex items-center justify-center font-bold text-sm">
-          <i class="fa-regular fa-newspaper"></i>
-        </div>
-        <h3 class="font-bold text-slate-900 dark:text-white text-sm">इंडियन स्टॉक मार्केट न्यूज़</h3>
-      </div>
-      
-      <div class="rounded-xl overflow-hidden">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
-          {
-            "feedMode": "market",
-            "market": "stock",
-            "isTransparent": true,
-            "displayMode": "regular",
-            "width": "100%",
-            "height": 480,
-            "colorTheme": "dark",
-            "locale": "en_IN"
-          }
-          </script>
-        </div>
-      </div>
-    </div>
-
-    <!-- 2. इकोनॉमिक कैलेंडर विजेट (INR & Major Currencies) -->
-    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
-      <div class="flex items-center gap-2 mb-3">
-        <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950 text-amber-600 flex items-center justify-center font-bold text-sm">
-          <i class="fa-regular fa-calendar-days"></i>
-        </div>
-        <h3 class="font-bold text-slate-900 dark:text-white text-sm">आर्थिक इवेंट्स & RBI दरें (Calendar)</h3>
-      </div>
-      
-      <div class="rounded-xl overflow-hidden">
-        <div class="tradingview-widget-container">
-          <div class="tradingview-widget-container__widget"></div>
-          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-          {
-            "width": "100%",
-            "height": 480,
-            "colorTheme": "dark",
-            "isTransparent": true,
-            "locale": "en_IN",
-            "importanceFilter": "0,1",
-            "currencyFilter": "INR,USD,EUR"
-          }
-          </script>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-<!-- ================= ट्रेडिंग हब समाप्त ================= -->
     </div>
   </section>
 
-  <!-- ================= 8. मुख्य नागरिक सेवाएं (विद गाइड मोडल्स) ================= -->
+  <!-- ================= 8. मुख्य नागरिक सेवाएं ================= -->
   <main id="services" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
     <div class="flex items-center justify-between mb-8">
       <div>
@@ -633,8 +655,8 @@
 
     <div id="servicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-      <!-- Card 1: आधार कार्ड -->
-      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="आधार कार्ड मोबाइल नंबर पता सुधार ऑनलाइन">
+      <!-- Card 1 -->
+      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पहचान पत्र मोबाइल नंबर पता सुधार ऑनलाइन आधार">
         <div>
           <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center text-xl mb-4">
             <i class="fa-solid fa-id-card"></i>
@@ -643,8 +665,8 @@
             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 text-blue-600 dark:bg-blue-900/40">दस्तावेज सुधार</span>
             <span class="text-xs text-slate-400">3 मिनट रीडिंग</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">आधार कार्ड में पता और मोबाइल अपडेट</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">घर बैठे UIDAI पोर्टल से अपना नया पता, नाम या मोबाइल नंबर लिंक स्थिति देखने का सबसे नया तरीका।</p>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">पहचान पत्र में पता और मोबाइल अपडेट</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">घर बैठे आधिकारिक पोर्टल से अपना नया पता, नाम या मोबाइल नंबर लिंक स्थिति देखने का सुरक्षित तरीका।</p>
         </div>
         <button onclick="openModal('aadhaarModal')" class="w-full inline-flex items-center justify-between text-xs font-bold text-brand-600 hover:text-brand-700 dark:text-brand-400 pt-3 border-t border-slate-100 dark:border-slate-800 transition">
           <span>पूरी प्रक्रिया पढ़ें</span>
@@ -652,7 +674,7 @@
         </button>
       </div>
 
-      <!-- Card 2: आयुष्मान कार्ड -->
+      <!-- Card 2 -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="आयुष्मान कार्ड 5 लाख मुफ्त इलाज e-kyc ऑनलाइन">
         <div>
           <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center text-xl mb-4">
@@ -671,7 +693,7 @@
         </button>
       </div>
 
-      <!-- Card 3: पीएम सूर्य घर योजना -->
+      <!-- Card 3 -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पीएम सूर्य घर योजना सोलर पैनल 300 यूनिट मुफ्त बिजली सब्सिडी">
         <div>
           <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-600 flex items-center justify-center text-xl mb-4">
@@ -690,8 +712,8 @@
         </button>
       </div>
 
-      <!-- Card 4: इंस्टेंट ई-पैन -->
-      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पैन कार्ड आधार लिंक स्टेटस नया इंस्टेंट ई-पैन">
+      <!-- Card 4 -->
+      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पैन कार्ड लिंक स्टेटस नया इंस्टेंट ई-पैन pan card">
         <div>
           <div class="w-12 h-12 rounded-xl bg-violet-100 dark:bg-violet-950 text-violet-600 flex items-center justify-center text-xl mb-4">
             <i class="fa-solid fa-address-card"></i>
@@ -701,7 +723,7 @@
             <span class="text-xs text-slate-400">10 मिनट प्रक्रिया</span>
           </div>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">इंस्टेंट ई-पैन (Instant e-PAN) फ्री में पाएं</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">आधार OTP द्वारा 10 मिनट में डिजिटल पैन कार्ड बनाएं और आधार-पैन लिंकिंग स्टेटस तुरंत चेक करें।</p>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">डिजिटल OTP सत्यापन द्वारा 10 मिनट में डिजिटल पैन कार्ड बनाएं और लिंकिंग स्टेटस तुरंत चेक करें।</p>
         </div>
         <button onclick="openModal('panModal')" class="w-full inline-flex items-center justify-between text-xs font-bold text-brand-600 hover:text-brand-700 dark:text-brand-400 pt-3 border-t border-slate-100 dark:border-slate-800 transition">
           <span>पैन अप्लाई गाइड</span>
@@ -709,7 +731,7 @@
         </button>
       </div>
 
-      <!-- Card 5: राशन कार्ड सेवा -->
+      <!-- Card 5 -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="राशन कार्ड नया नाम जोड़ना राशन लिस्ट ऑनलाइन चेक">
         <div>
           <div class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-600 flex items-center justify-center text-xl mb-4">
@@ -728,7 +750,7 @@
         </button>
       </div>
 
-      <!-- Card 6: स्कॉलरशिप सहायता -->
+      <!-- Card 6 -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="छात्रवृत्ति स्कॉलरशिप 10वीं 12वीं कॉलेज छात्र सहायता">
         <div>
           <div class="w-12 h-12 rounded-xl bg-pink-100 dark:bg-pink-950 text-pink-600 flex items-center justify-center text-xl mb-4">
@@ -739,7 +761,7 @@
             <span class="text-xs text-slate-400">NSP पोर्टल</span>
           </div>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">10वीं/12वीं पास छात्रों के लिए स्कॉलरशिप</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">नेशनल स्कॉलरशिप पोर्टल (NSP) पर आवेदन करें और उच्च शिक्षा के लिए सालाना ₹20,000 से ₹50,000 की मदद पाएं।</p>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">नेशनल स्कॉलरशिप पोर्टल (NSP) पर आवेदन करें और उच्च शिक्षा के लिए सहायता प्राप्त करें।</p>
         </div>
         <button onclick="openModal('scholarshipModal')" class="w-full inline-flex items-center justify-between text-xs font-bold text-brand-600 hover:text-brand-700 dark:text-brand-400 pt-3 border-t border-slate-100 dark:border-slate-800 transition">
           <span>छात्रवृत्ति लिस्ट देखें</span>
@@ -759,7 +781,7 @@
           <i class="fa-solid fa-calculator mr-1"></i> ऑल-इन-वन स्मार्ट टूल
         </span>
         <h2 class="text-2xl sm:text-3xl font-extrabold mt-2">जन सुविधा यूटिलिटी कैलकुलेटर</h2>
-        <p class="text-xs sm:text-sm text-indigo-100 mt-1">किस्त (EMI), निवेश मुनाफा और सरकारी योजना पात्रता 1-क्लिक में जांचें</p>
+        <p class="text-xs sm:text-sm text-indigo-100 mt-1">किस्त (EMI), निवेश मुनाफा और सरकारी योजना पात्रता जांचें</p>
 
         <div class="flex flex-wrap justify-center gap-2 mt-6">
           <button onclick="switchTab('emiTab', this)" class="tab-btn active-tab px-4 py-2 rounded-xl text-xs sm:text-sm font-bold bg-white text-indigo-700 shadow-md transition flex items-center gap-2">
@@ -938,7 +960,7 @@
       <div class="max-w-3xl mb-8">
         <span class="text-brand-400 text-xs font-bold uppercase tracking-wider">फ्री सोलर टूल</span>
         <h2 class="text-2xl sm:text-3xl font-bold mt-1">पीएम सूर्य घर सोलर सब्सिडी कैलकुलेटर</h2>
-        <p class="text-xs sm:text-sm text-slate-300 mt-2">अपने मासिक बिजली बिल के हिसाब से जानिए कि आपको कितने किलोवाट (kW) का सोलर पैनल चाहिए और कितनी सब्सिडी मिलेगी।</p>
+        <p class="text-xs sm:text-sm text-slate-300 mt-2">अपने मासिक बिजली बिल के हिसाब से जानिए कि आपको कितने किलोवाट का सोलर पैनल चाहिए और कितनी सब्सिडी मिलेगी।</p>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
@@ -984,7 +1006,7 @@
     </div>
   </section>
 
-  <!-- ================= 11. अक्सर पूछे जाने वाले सवाल (FAQ) ================= -->
+  <!-- ================= 11. FAQ ================= -->
   <section class="max-w-4xl mx-auto px-4 py-12">
     <div class="text-center mb-8">
       <h2 class="text-2xl font-bold text-slate-900 dark:text-white">आम जनता के सामान्य सवाल</h2>
@@ -994,11 +1016,11 @@
     <div class="space-y-3">
       <details class="group bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 transition">
         <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center text-slate-800 dark:text-slate-200">
-          <span>क्या आधार में मोबाइल नंबर घर बैठे लिंक हो सकता है?</span>
+          <span>क्या पहचान पत्र में मोबाइल नंबर घर बैठे लिंक हो सकता है?</span>
           <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
         </summary>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
-          सुरक्षा कारणों से नया मोबाइल नंबर केवल आधार सेंटर या डाकिए के बायोमेट्रिक ऑथेंटिकेशन द्वारा ही अपडेट किया जाता है। पता आप ऑनलाइन पोर्टल से बदल सकते हैं।
+          सुरक्षा कारणों से नया मोबाइल नंबर केवल आधिकारिक सेवा केंद्र या डाकिए के बायोमेट्रिक ऑथेंटिकेशन द्वारा ही अपडेट किया जाता है। पता आप ऑनलाइन पोर्टल से बदल सकते हैं।
         </p>
       </details>
 
@@ -1008,7 +1030,7 @@
           <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
         </summary>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
-          यदि आपका आधार और राशन कार्ड डेटा 80% से ज्यादा मैच होता है, तो e-KYC पूरा होते ही कार्ड तुरंत अप्रूव हो जाता है और आप 5 मिनट में डिजिटल कार्ड डाउनलोड कर सकते हैं।
+          यदि आपका राशन कार्ड और पहचान डेटा 80% से ज्यादा मैच होता है, तो e-KYC पूरा होते ही कार्ड तुरंत अप्रूव हो जाता है और आप 5 मिनट में डिजिटल कार्ड डाउनलोड कर सकते हैं।
         </p>
       </details>
 
@@ -1018,13 +1040,13 @@
           <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
         </summary>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
-          हमारे पोर्टल पर सभी बुकिंग्स आधिकारिक और अधिकृत पार्टनर नेटवर्क (ConfirmTkt, RedBus, Agoda) द्वारा 256-bit SSL एन्क्रिप्शन के साथ पूरी तरह सुरक्षित होती हैं।
+          हमारे पोर्टल पर सभी बुकिंग्स आधिकारिक पार्टनर नेटवर्क द्वारा 256-bit SSL एन्क्रिप्शन के साथ पूरी तरह सुरक्षित होती हैं।
         </p>
       </details>
     </div>
   </section>
 
-  <!-- ================= 12. मास्टर प्रो फुटर ================= -->
+  <!-- ================= 12. फुटर ================= -->
   <footer class="bg-slate-900 text-slate-400 text-xs border-t border-slate-800 pt-12 pb-8">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
       
@@ -1043,18 +1065,16 @@
         </span>
       </div>
 
-      <!-- ExtrasalaryDotcom आधिकारिक प्रॉडक्ट्स लिंक्स -->
       <div>
         <h4 class="font-bold text-white text-sm mb-3.5 tracking-wider uppercase">Extrasalary स्टोर व गाइड्स</h4>
         <ul class="space-y-2.5 text-[12px]">
           <li><a href="https://extrasalarydotcom.github.io/Extrasalary-store/" target="_blank" rel="noopener noreferrer" class="text-indigo-400 hover:text-white transition flex items-center gap-1.5 font-bold"><i class="fa-solid fa-store text-[10px]"></i> Extrasalary स्टोर (Store)</a></li>
           <li><a href="https://extrasalarydotcom.github.io/6odaystrader-roadmap/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-chart-line text-[10px] text-amber-400"></i> 60-डे ट्रेडर रोडमैप</a></li>
-          <li><a href="https://extrsalarydotcom.github.io/Financial-Freedom-Blueprint/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-gem text-[10px] text-emerald-400"></i> फाइनेंशियल फ्रीडम ब्लूप्रिंट</a></li>
+          <li><a href="https://extrasalarydotcom.github.io/Financial-Freedom-Blueprint/" target="_blank" rel="noopener noreferrer" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-gem text-[10px] text-emerald-400"></i> फाइनेंशियल फ्रीडम ब्लूप्रिंट</a></li>
           <li><a href="#travel-booking" class="hover:text-white transition flex items-center gap-1.5"><i class="fa-solid fa-ticket text-[10px] text-indigo-400"></i> ट्रेन व बस टिकट बुकिंग</a></li>
         </ul>
       </div>
 
-      <!-- लीगल और नीतियां -->
       <div>
         <h4 class="font-bold text-white text-sm mb-3.5 tracking-wider uppercase">कंपनी नीतियां व नियम</h4>
         <ul class="space-y-2.5 text-[12px]">
@@ -1066,18 +1086,18 @@
       </div>
 
       <div>
-        <h4 class="font-bold text-white text-sm mb-3.5 tracking-wider uppercase">ExtrasalaryDotcom सहायता</h4>
+        <h4 class="font-bold text-white text-sm mb-3.5 tracking-wider uppercase">Extrasalary सहायता</h4>
         <p class="text-[12px] text-slate-400 mb-3 leading-relaxed">
-          किसी भी तकनीकी सहायता या जानकारी के लिए हमारी टीम से संपर्क करें।
+          किसी भी सहायता के लिए हमारी टीम से सीधे ईमेल द्वारा संपर्क करें:
         </p>
         <div class="space-y-2 text-[12px]">
           <div class="flex items-center gap-2 text-slate-300">
             <i class="fa-solid fa-envelope text-indigo-400"></i>
-            <span>supportextrasalarydotcom@gmail.com</span>
+            <a href="mailto:supportextrasalary@gmail.com" class="hover:text-white hover:underline text-indigo-300">supportextrasalary@gmail.com</a>
           </div>
           <div class="flex items-center gap-2 text-slate-300">
             <i class="fa-solid fa-headset text-indigo-400"></i>
-            <span>ExtrasalaryDotcom हेल्पडेस्क</span>
+            <span>हेल्पडेस्क (24x7 ऑनलाइन)</span>
           </div>
         </div>
       </div>
@@ -1094,7 +1114,7 @@
     </div>
   </footer>
 
-  <!-- ================= 13. इन-बिल्ट लीगल व गाइड मोडल्स (All 10 Modals Inside) ================= -->
+  <!-- ================= 13. इन-बिल्ट लीगल व गाइड मोडल्स ================= -->
   <div id="modalBackdrop" class="fixed inset-0 bg-slate-900/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     
     <!-- 13.1 About Us Modal -->
@@ -1106,12 +1126,12 @@
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="mt-4 space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-        <p><strong>जनसुविधाHub (पावर्ड बाय ExtrasalaryDotcom)</strong> भारत का एक अग्रणी डिजिटल नागरिक सूचना और यूटिलिटी पोर्टल है। हमारा मुख्य लक्ष्य देश के आम नागरिकों को सरकारी योजनाओं, दस्तावेज़ सुधार प्रक्रियाओं (आधार, पैन, आयुष्मान), ट्रेवल बुकिंग और वित्तीय साक्षरता की सटीक और निष्पक्ष जानकारी प्रदान करना है।</p>
-        <p>हमारा मानना है कि सही जानकारी हर नागरिक का अधिकार है। इसलिए हम जटिल सरकारी और तकनीकी प्रक्रियाओं को अत्यंत सरल, बोलचाल की हिंदी भाषा में समझाते हैं ताकि कोई भी व्यक्ति बिना किसी बिचौलिए के अपना काम स्वयं कर सके।</p>
+        <p><strong>जनसुविधाHub (पावर्ड बाय ExtrasalaryDotcom)</strong> भारत का एक प्रमुख डिजिटल नागरिक सूचना और यूटिलिटी पोर्टल है। हमारा मुख्य लक्ष्य आम नागरिकों को सरकारी योजनाओं, दस्तावेज़ सुधार प्रक्रियाओं, ट्रेवल बुकिंग और वित्तीय साक्षरता की निष्पक्ष जानकारी देना है।</p>
+        <p>हमारा मानना है कि सही जानकारी हर नागरिक का अधिकार है, जिससे कोई भी व्यक्ति बिना किसी बिचौलिए के अपना कार्य सरलता से कर सके।</p>
       </div>
     </div>
 
-    <!-- 13.2 Contact Us Modal -->
+    <!-- 13.2 Contact Us Modal (FormSubmit Working Form) -->
     <div id="contactModal" class="modal-box hidden bg-white dark:bg-slate-900 max-w-2xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[85vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b pb-4 dark:border-slate-800">
         <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -1120,15 +1140,28 @@
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="mt-4 space-y-4 text-xs sm:text-sm text-slate-600 dark:text-slate-300">
-        <p>यदि आपके पास कोई प्रश्न, सुझाव या सहायता की आवश्यकता है, तो आप ExtrasalaryDotcom सपोर्ट टीम से सीधे संपर्क कर सकते हैं:</p>
-        <div class="space-y-3">
-          <input type="text" placeholder="आपका नाम" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border rounded-xl text-xs sm:text-sm">
-          <input type="email" placeholder="आपका ईमेल आईडी" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border rounded-xl text-xs sm:text-sm">
-          <textarea rows="3" placeholder="आपका संदेश / सवाल..." class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border rounded-xl text-xs sm:text-sm"></textarea>
-          <button onclick="alert('धन्यवाद! आपका संदेश ExtrasalaryDotcom को प्राप्त हो गया है। हम जल्द आपसे संपर्क करेंगे।'); closeModals();" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition text-xs sm:text-sm">
+        <div class="p-3.5 bg-indigo-50 dark:bg-slate-800 rounded-xl border border-indigo-100 dark:border-slate-700 flex items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5 truncate">
+            <i class="fa-solid fa-at text-indigo-600 dark:text-indigo-400 text-base"></i>
+            <span class="font-bold text-slate-800 dark:text-white truncate">supportextrasalary@gmail.com</span>
+          </div>
+          <a href="mailto:supportextrasalary@gmail.com" class="px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition flex-shrink-0">
+            ईमेल भेजें
+          </a>
+        </div>
+
+        <p>या नीचे दिया गया फॉर्म भरें, संदेश सीधे हमारी सपोर्ट टीम को पहुंचेगा:</p>
+        
+        <form action="https://formsubmit.co/supportextrasalary@gmail.com" method="POST" class="space-y-3">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_subject" value="जनसुविधाHub नया संपर्क संदेश">
+          <input type="text" name="name" required placeholder="आपका नाम" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-indigo-600">
+          <input type="email" name="email" required placeholder="आपका ईमेल आईडी" class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-indigo-600">
+          <textarea name="message" rows="3" required placeholder="आपका संदेश / सवाल..." class="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-800 border dark:border-slate-700 rounded-xl text-xs sm:text-sm focus:outline-none focus:border-indigo-600"></textarea>
+          <button type="submit" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition text-xs sm:text-sm">
             संदेश भेजें
           </button>
-        </div>
+        </form>
       </div>
     </div>
 
@@ -1141,13 +1174,12 @@
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="mt-4 space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-        <p><strong>1. डेटा सुरक्षा:</strong> जनसुविधाHub पर हम किसी भी यूज़र का गोपनीय पासवर्ड, बैंकिंग डेटा या संवेदनशील दस्तावेज़ अपने सर्वर पर स्टोर नहीं करते।</p>
-        <p><strong>2. कैलकुलेटर व टूल्स:</strong> हमारी वेबसाइट पर मौजूद सभी कैलकुलेटर (EMI, SIP, Age, Solar) पूरी तरह क्लाइंट-साइड (आपके ब्राउज़र में) चलते हैं।</p>
-        <p><strong>3. कुकीज़ (Cookies):</strong> हम यूज़र एक्सपीरियंस को बेहतर बनाने के लिए सामान्य ब्राउज़र कुकीज़ का उपयोग करते हैं।</p>
+        <p><strong>1. डेटा सुरक्षा:</strong> जनसुविधाHub पर हम किसी भी यूज़र का बैंकिंग डेटा या गोपनीय पासवर्ड स्टोर नहीं करते।</p>
+        <p><strong>2. टूल्स व कैलकुलेटर:</strong> पोर्टल पर मौजूद सभी कैलकुलेटर क्लाइंट-साइड चलते हैं और आपकी कोई वित्तीय जानकारी एकत्र नहीं करते।</p>
       </div>
     </div>
 
-    <!-- 13.4 Terms & Conditions Modal -->
+    <!-- 13.4 Terms Modal -->
     <div id="termsModal" class="modal-box hidden bg-white dark:bg-slate-900 max-w-2xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[85vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b pb-4 dark:border-slate-800">
         <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -1156,13 +1188,12 @@
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-lg"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="mt-4 space-y-3 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-        <p><strong>1. सूचनात्मक उद्देश्य:</strong> यह पोर्टल जन-जागरूकता, शैक्षणिक और बुकिंग सहायता के लिए है। हम किसी भी सरकारी निकाय का आधिकारिक प्रतिनिधित्व नहीं करते।</p>
-        <p><strong>2. आधिकारिक स्रोत:</strong> सरकारी योजनाओं का अंतिम निर्णय संबंधित आधिकारिक पोर्टल (जैसे UIDAI, NHA) पर ही मान्य होगा।</p>
-        <p><strong>3. बुकिंग नीतियां:</strong> ट्रेवल टिकट बुकिंग संबंधित कंपनियों (IRCTC, RedBus, Agoda) के नियमों के अधीन है।</p>
+        <p><strong>1. सूचनात्मक पोर्टल:</strong> यह पोर्टल केवल जन-जागरूकता और शैक्षणिक मार्गदर्शन हेतु बनाया गया है।</p>
+        <p><strong>2. आधिकारिक स्रोत:</strong> किसी भी सरकारी योजना का अंतिम निर्णय संबंधित आधिकारिक पोर्टल द्वारा निर्धारित नियमों के अनुसार ही होगा।</p>
       </div>
     </div>
 
-    <!-- 13.5 Aadhaar Guide Modal -->
+    <!-- 13.5 Identity Guide Modal -->
     <div id="aadhaarModal" class="modal-box hidden bg-white dark:bg-slate-900 max-w-3xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[88vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b pb-4 dark:border-slate-800">
         <div class="flex items-center gap-3">
@@ -1170,8 +1201,8 @@
             <i class="fa-solid fa-id-card"></i>
           </div>
           <div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">आधार कार्ड: पता व मोबाइल अपडेट गाइड</h3>
-            <p class="text-[11px] text-slate-500">आधिकारिक UIDAI पोर्टल अनुसार 2026 की नवीनतम ऑनलाइन प्रक्रिया</p>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">पहचान पत्र: पता व मोबाइल अपडेट गाइड</h3>
+            <p class="text-[11px] text-slate-500">आधिकारिक UIDAI पोर्टल अनुसार प्रक्रिया</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
@@ -1183,11 +1214,10 @@
             घर बैठे पता बदलने की ऑनलाइन विधि:
           </h4>
           <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
-            <li>UIDAI पोर्टल <strong>myaadhaar.uidai.gov.in</strong> पर जाएं और 'Login' पर क्लिक करें।</li>
-            <li>आधार नंबर और कैप्चा कोड डालकर रजिस्टर्ड मोबाइल OTP से लॉगिन करें।</li>
-            <li>डैशबोर्ड पर <strong>'Update Aadhaar Online'</strong> चुनें और 'Address' सेलेक्ट करें।</li>
-            <li>नया पता ध्यानपूर्वक भरें और एड्रेस प्रूफ अपलोड करें।</li>
-            <li>₹50 का ऑनलाइन शुल्क भुगतान करें। प्राप्त SRN नंबर से स्टेटस ट्रैक करें।</li>
+            <li>UIDAI पोर्टल <strong>myaadhaar.uidai.gov.in</strong> पर जाएं और 'Login' चुनें।</li>
+            <li>अपनी 12 अंकों की पहचान संख्या और कैप्चा डालकर OTP से लॉगिन करें।</li>
+            <li>डैशबोर्ड पर <strong>'Update Online'</strong> चुनकर नया पता और एड्रेस प्रूफ अपलोड करें।</li>
+            <li>ऑनलाइन फीस जमा कर पावती संख्या से स्टेटस ट्रैक करें।</li>
           </ol>
         </div>
         <div class="pt-4 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
@@ -1207,7 +1237,7 @@
           </div>
           <div>
             <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">आयुष्मान भारत: ₹5 लाख फ्री इलाज कार्ड</h3>
-            <p class="text-[11px] text-slate-500">घर बैठे ऑनलाइन e-KYC और कार्ड डाउनलोड गाइड</p>
+            <p class="text-[11px] text-slate-500">ऑनलाइन e-KYC और कार्ड डाउनलोड गाइड</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
@@ -1216,13 +1246,13 @@
         <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
           <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
             <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">1</span>
-            आयुष्मान कार्ड बनाने का आसान प्रोसेस:
+            कार्ड बनाने की प्रक्रिया:
           </h4>
           <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
-            <li><strong>beneficiary.nha.gov.in</strong> खोलें और मोबाइल OTP से लॉगिन करें।</li>
-            <li>राज्य, PMJAY योजना और जिला चुनकर राशन कार्ड या आधार से नाम खोजें।</li>
-            <li>सदस्य के नाम के आगे <strong>'e-KYC'</strong> पर क्लिक करके Aadhaar OTP और लाइव सेल्फी अपलोड करें।</li>
-            <li>डेटा मैच होते ही कार्ड तुरंत अप्रूव हो जाएगा और PDF डाउनलोड हो जाएगी।</li>
+            <li><strong>beneficiary.nha.gov.in</strong> पोर्टल पर मोबाइल नंबर से लॉगिन करें।</li>
+            <li>राशन कार्ड या पहचान संख्या द्वारा परिवार के सदस्यों का नाम खोजें।</li>
+            <li>सदस्य के नाम के आगे <strong>'e-KYC'</strong> पूरा करें।</li>
+            <li>सत्यापन होते ही डिजिटल कार्ड तुरंत डाउनलोड करें।</li>
           </ol>
         </div>
         <div class="pt-4 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
@@ -1242,7 +1272,7 @@
           </div>
           <div>
             <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">पीएम सूर्य घर मुफ्त बिजली योजना</h3>
-            <p class="text-[11px] text-slate-500">₹78,000 सब्सिडी और 300 यूनिट मुफ्त बिजली का पूरा प्रोसेस</p>
+            <p class="text-[11px] text-slate-500">₹78,000 सब्सिडी और प्रोसेस</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
@@ -1251,13 +1281,12 @@
         <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
           <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
             <span class="w-6 h-6 rounded-full bg-amber-600 text-white flex items-center justify-center text-xs">1</span>
-            सोलर लगाने और सब्सिडी पाने के स्टेप्स:
+            सोलर लगाने के स्टेप्स:
           </h4>
           <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
             <li><strong>pmsuryaghar.gov.in</strong> पर बिजली बिल कंज्यूमर नंबर से रजिस्ट्रेशन करें।</li>
-            <li>डिस्कॉम अप्रूवल के बाद रजिस्टर्ड वेंडर से छत पर सोलर पैनल लगवाएं।</li>
-            <li>नेट-मीटरिंग और कमीशनिंग सर्टिफिकेट मिलने पर बैंक खाता विवरण अपलोड करें।</li>
-            <li>30 दिन के अंदर ₹78,000 तक की सब्सिडी सीधे बैंक खाते में आ जाती है।</li>
+            <li>अप्रूवल के बाद अधिकृत वेंडर से छत पर सोलर पैनल लगवाएं।</li>
+            <li>नेट-मीटरिंग पूरी होने पर सब्सिडी सीधे बैंक खाते में प्राप्त करें।</li>
           </ol>
         </div>
         <div class="pt-4 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
@@ -1276,23 +1305,18 @@
             <i class="fa-solid fa-address-card"></i>
           </div>
           <div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">इंस्टेंट ई-पैन (Instant e-PAN) फ्री गाइड</h3>
-            <p class="text-[11px] text-slate-500">मात्र 10 मिनट में डिजिटल पैन कार्ड बनाएं</p>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">इंस्टेंट ई-पैन गाइड</h3>
+            <p class="text-[11px] text-slate-500">10 मिनट में डिजिटल पैन कार्ड बनाएं</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="mt-6 space-y-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
-          <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
-            <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs">1</span>
-            ई-पैन कार्ड बनाने के 4 स्टेप्स:
-          </h4>
           <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
             <li>इनकम टैक्स पोर्टल <strong>eportal.incometax.gov.in</strong> पर जाएं।</li>
-            <li>'Instant e-PAN' चुनकर आधार नंबर दर्ज करें।</li>
-            <li>प्राप्त OTP दर्ज करें और फॉर्म सबमिट करें।</li>
-            <li>10 मिनट बाद 'Download PAN' से PDF प्राप्त करें।</li>
+            <li>'Instant e-PAN' चुनकर आवश्यक विवरण और OTP दर्ज करें।</li>
+            <li>प्रक्रिया पूरी होने पर डिजिटल PDF पैन कार्ड डाउनलोड करें।</li>
           </ol>
         </div>
         <div class="pt-4 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
@@ -1311,27 +1335,23 @@
             <i class="fa-solid fa-wheat-awn"></i>
           </div>
           <div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">राशन कार्ड: नया सदस्य जोड़ने की विधि</h3>
-            <p class="text-[11px] text-slate-500">परिवार के नए सदस्य का नाम ऑनलाइन जोड़ें</p>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">राशन कार्ड: नया सदस्य जोड़ें</h3>
+            <p class="text-[11px] text-slate-500">परिवार के सदस्य का नाम जोड़ने की विधि</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="mt-6 space-y-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
-          <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
-            <span class="w-6 h-6 rounded-full bg-teal-600 text-white flex items-center justify-center text-xs">1</span>
-            ऑनलाइन नाम जोड़ने की प्रक्रिया:
-          </h4>
           <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
             <li>राज्य खाद्य पोर्टल (NFSA / e-District) पर जाएं।</li>
-            <li>राशन कार्ड नंबर से लॉगिन करके 'Add Member' चुनें।</li>
-            <li>जन्म प्रमाण पत्र / आवश्यक दस्तावेज अपलोड करके सबमिट करें।</li>
+            <li>राशन कार्ड नंबर से लॉगिन करके 'Add Member' विकल्प चुनें।</li>
+            <li>आवश्यक दस्तावेज अपलोड करके आवेदन सबमिट करें।</li>
           </ol>
         </div>
         <div class="pt-4 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
           <a href="https://nfsa.gov.in" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition text-xs sm:text-sm">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> राष्ट्रीय खाद्य सुरक्षा पोर्टल
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> NFSA पोर्टल
           </a>
         </div>
       </div>
@@ -1346,21 +1366,17 @@
           </div>
           <div>
             <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">छात्रवृत्ति व स्कॉलरशिप गाइड</h3>
-            <p class="text-[11px] text-slate-500">10वीं, 12वीं एवं कॉलेज के छात्रों के लिए राष्ट्रीय स्कॉलरशिप आवेदन</p>
+            <p class="text-[11px] text-slate-500">10वीं, 12वीं एवं कॉलेज छात्रवृत्ति</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="mt-6 space-y-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
         <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
-          <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
-            <span class="w-6 h-6 rounded-full bg-pink-600 text-white flex items-center justify-center text-xs">1</span>
-            NSP पोर्टल पर आवेदन का तरीका:
-          </h4>
           <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
             <li><strong>scholarships.gov.in</strong> पर जाकर One Time Registration (OTR) करें।</li>
             <li>मार्कशीट, आय प्रमाण पत्र और बैंक खाता अपलोड करें।</li>
-            <li>सत्यापन के बाद राशि सीधे बैंक खाते में आ जाती है।</li>
+            <li>सत्यापन के बाद छात्रवृत्ति सीधे बैंक खाते में पहुंचेगी।</li>
           </ol>
         </div>
         <div class="pt-4 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
@@ -1373,7 +1389,7 @@
 
   </div>
 
-  <!-- ================= 14. संपूर्ण जावास्क्रिप्ट इंजन ================= -->
+  <!-- ================= 14. जावास्क्रिप्ट इंजन ================= -->
   <script>
     // 1. Theme Toggle
     const themeToggleBtn = document.getElementById('themeToggle');
@@ -1393,7 +1409,17 @@
       }
     });
 
-    // 2. Travel Booking Tab Switching
+    // 2. Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    function toggleMobileMenu() {
+      if (mobileMenu) mobileMenu.classList.toggle('hidden');
+    }
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', toggleMobileMenu);
+    }
+
+    // 3. Travel Booking Tabs
     function switchTravelTab(tabId) {
       document.querySelectorAll('.travel-tab-content').forEach(el => el.classList.add('hidden'));
       document.querySelectorAll('.travel-tab-btn').forEach(btn => {
@@ -1409,7 +1435,7 @@
       }
     }
 
-    // 3. Search Filter with Smooth Scroll
+    // 4. Live Search Filter
     function filterServices() {
       const input = document.getElementById('serviceSearch').value.toLowerCase();
       const cards = document.querySelectorAll('.service-card');
@@ -1438,7 +1464,7 @@
       filterServices();
     }
 
-    // 4. Utility Calculator Tabs
+    // 5. Utility Calculator Tabs
     function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
       document.getElementById(tabId).classList.remove('hidden');
@@ -1452,7 +1478,7 @@
       btn.classList.remove('bg-white/10', 'text-white');
     }
 
-    // 5. EMI Calculator
+    // 6. EMI Calculator
     function runEmiCalc() {
       const P = parseFloat(document.getElementById('emiAmount').value);
       const annualR = parseFloat(document.getElementById('emiRate').value);
@@ -1475,7 +1501,7 @@
       document.getElementById('totalPaymentVal').innerText = '₹' + Math.round(totalPayment).toLocaleString('en-IN');
     }
 
-    // 6. SIP Calculator
+    // 7. SIP Calculator
     function runSipCalc() {
       const P = parseFloat(document.getElementById('sipAmount').value);
       const annualR = parseFloat(document.getElementById('sipRate').value);
@@ -1497,13 +1523,19 @@
       document.getElementById('sipGain').innerText = '+₹' + Math.round(gain).toLocaleString('en-IN');
     }
 
-    // 7. Age & Eligibility Calculator
+    // 8. Age & Scheme Eligibility
     function checkEligibility() {
       const dobVal = document.getElementById('dobInput').value;
       if (!dobVal) return;
 
       const dob = new Date(dobVal);
       const today = new Date();
+
+      if (dob > today) {
+        alert("कृपया सही जन्मतिथि चुनें (भविष्य की तारीख मान्य नहीं है)");
+        document.getElementById('dobInput').value = '';
+        return;
+      }
 
       let years = today.getFullYear() - dob.getFullYear();
       let months = today.getMonth() - dob.getMonth();
@@ -1549,7 +1581,7 @@
       }
     }
 
-    // 8. Solar Subsidy Calculator
+    // 9. Solar Subsidy Calculator
     function calculateSolar() {
       const bill = parseInt(document.getElementById('billRange').value);
       const roof = parseInt(document.getElementById('roofRange').value);
@@ -1576,7 +1608,7 @@
       document.getElementById('yearlySaving').innerText = "₹" + savings.toLocaleString('en-IN') + " / वर्ष";
     }
 
-    // 9. All Modals Engine
+    // 10. Modals Engine
     function openModal(modalId) {
       document.getElementById('modalBackdrop').classList.remove('hidden');
       document.querySelectorAll('.modal-box').forEach(el => el.classList.add('hidden'));
@@ -1598,19 +1630,20 @@
       if (e.key === 'Escape') closeModals();
     });
 
-    // 10. WhatsApp Share
-    // WhatsApp Share Function with Channel Link
+    // 11. WhatsApp Share
     function shareOnWhatsApp() {
       const siteUrl = window.location.href;
       const channelUrl = "https://whatsapp.com/channel/0029VaA1Tbd8aKvCJoesqD2i";
-      
       const message = `🔥 *जन सुविधा पोर्टल - ExtrasalaryDotcom*\n\nघर बैठे अपनी लोन EMI, सोलर सब्सिडी और सभी सरकारी योजनाओं की गाइड देखें:\n👉 ${siteUrl}\n\n📢 *लेटेस्ट अपडेट्स के लिए हमारे व्हाट्सएप चैनल से जुड़ें:*\n👉 ${channelUrl}`;
-      
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://api.whatsapp.com/send?text=${encodedMessage}`, '_blank');
     }
 
-    // Initial Load Triggers
+    // Input restrictions & Initial Execution
+    const todayStr = new Date().toISOString().split('T')[0];
+    const dobElem = document.getElementById('dobInput');
+    if (dobElem) dobElem.setAttribute('max', todayStr);
+
     runEmiCalc();
     runSipCalc();
     calculateSolar();
