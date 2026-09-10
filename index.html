@@ -1000,7 +1000,7 @@
         <div class="space-y-2 text-[12px]">
           <div class="flex items-center gap-2 text-slate-300">
             <i class="fa-solid fa-envelope text-indigo-400"></i>
-            <span>support@extrasalarydotcom.com</span>
+            <span>supportextrasalarydotcom@gmail.com</span>
           </div>
           <div class="flex items-center gap-2 text-slate-300">
             <i class="fa-solid fa-headset text-indigo-400"></i>
@@ -1526,9 +1526,15 @@
     });
 
     // 10. WhatsApp Share
+    // WhatsApp Share Function with Channel Link
     function shareOnWhatsApp() {
-      const text = encodeURIComponent("जन सुविधा पोर्टल से घर बैठे अपनी लोन EMI, सोलर सब्सिडी और योजना पात्रता फ्री में निकालें! यहाँ देखें: " + window.location.href);
-      window.open(`https://api.whatsapp.com/send?text=${text}`, '_blank');
+      const siteUrl = window.location.href;
+      const channelUrl = "https://whatsapp.com/channel/0029VaA1Tbd8aKvCJoesqD2i";
+      
+      const message = `🔥 *जन सुविधा पोर्टल - ExtrasalaryDotcom*\n\nघर बैठे अपनी लोन EMI, सोलर सब्सिडी और सभी सरकारी योजनाओं की गाइड देखें:\n👉 ${siteUrl}\n\n📢 *लेटेस्ट अपडेट्स के लिए हमारे व्हाट्सएप चैनल से जुड़ें:*\n👉 ${channelUrl}`;
+      
+      const encodedMessage = encodeURIComponent(message);
+      window.open(`https://api.whatsapp.com/send?text=${encodedMessage}`, '_blank');
     }
 
     // Initial Load Triggers
