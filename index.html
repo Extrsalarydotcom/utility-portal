@@ -546,6 +546,78 @@
 
     <div class="mt-6 p-4 rounded-xl bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 text-[11px] text-slate-500 text-center leading-relaxed">
       <strong>⚠️ वित्तीय जोखिम सूचना:</strong> यहाँ प्रदर्शित मार्केट डेटा केवल शैक्षणिक व सूचनात्मक उद्देश्यों के लिए है। निवेश से पहले अपने प्रमाणित वित्तीय सलाहकार से परामर्श अवश्य लें।
+      <!-- ================= ट्रेडिंग और मार्केट हब (India News + Economic Calendar) ================= -->
+<section class="mt-10 mb-10 w-full">
+  <div class="mb-5">
+    <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
+      <span class="p-2 rounded-lg bg-emerald-500/10 text-emerald-600 dark:text-emerald-400">
+        <i class="fa-solid fa-chart-line"></i>
+      </span>
+      भारतीय बाज़ार लाइव न्यूज़ & इकोनॉमिक कैलेंडर
+    </h2>
+    <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">24x7 ऑटोमैटिक लाइव अपडेट्स - TradingView द्वारा संचालित</p>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    
+    <!-- 1. भारतीय मार्केट न्यूज़ विजेट -->
+    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-950 text-rose-600 flex items-center justify-center font-bold text-sm">
+          <i class="fa-regular fa-newspaper"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm">इंडियन स्टॉक मार्केट न्यूज़</h3>
+      </div>
+      
+      <div class="rounded-xl overflow-hidden">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
+          {
+            "feedMode": "market",
+            "market": "stock",
+            "isTransparent": true,
+            "displayMode": "regular",
+            "width": "100%",
+            "height": 480,
+            "colorTheme": "dark",
+            "locale": "en_IN"
+          }
+          </script>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2. इकोनॉमिक कैलेंडर विजेट (INR & Major Currencies) -->
+    <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
+      <div class="flex items-center gap-2 mb-3">
+        <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950 text-amber-600 flex items-center justify-center font-bold text-sm">
+          <i class="fa-regular fa-calendar-days"></i>
+        </div>
+        <h3 class="font-bold text-slate-900 dark:text-white text-sm">आर्थिक इवेंट्स & RBI दरें (Calendar)</h3>
+      </div>
+      
+      <div class="rounded-xl overflow-hidden">
+        <div class="tradingview-widget-container">
+          <div class="tradingview-widget-container__widget"></div>
+          <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+          {
+            "width": "100%",
+            "height": 480,
+            "colorTheme": "dark",
+            "isTransparent": true,
+            "locale": "en_IN",
+            "importanceFilter": "0,1",
+            "currencyFilter": "INR,USD,EUR"
+          }
+          </script>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+<!-- ================= ट्रेडिंग हब समाप्त ================= -->
     </div>
   </section>
 
