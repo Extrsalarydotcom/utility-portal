@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ऑल इंडिया बैंक ब्याज दरें - ExtrasalaryDotcom</title>
+  <meta name="description" content="भारत के सभी प्रमुख बैंकों के FD और लोन ब्याज दरों की तुलना करें। ExtrasalaryDotcom पर पाएँ ताज़ा और सटीक दरें।">
+  <style>
+    :root {
+      --bg-main: #0b1120;
+      --bg-card: #1e293b;
+      --bg-card-hover: #273549;
+      --border-color: #334155;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --accent-green: #22c55e;
+      --accent-red: #ef4444;
+      --accent-rate-green: #4ade80;
+      --accent-yellow: #facc15;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-main);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* 1. Top Running Ticker (चलती हुई पट्टी) */
+    .ticker-wrap {
+      width: 100%;
+      background: #0284c7;
+      background: linear-gradient(90deg, #0369a1, #0284c7, #0369a1);
+      color: #ffffff;
+      overflow: hidden;
+      height: 38px;
+      display: flex;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      border-bottom: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .ticker-title {
+      background: #0c4a6e;
+      color: #38bdf8;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 0 16px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      white-space: nowrap;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      z-index: 2;
+    }
+
+    .ticker-content {
+      display: flex;
+      white-space: nowrap;
+      animation: tickerAnimation 32s linear infinite;
+    }
+
+    .ticker-content:hover {
+      animation-play-state: paused;
+    }
+
+    .ticker-item {
+      display: inline-flex;
+      align-items: center;
+      padding: 0 22px;
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    .ticker-item span.bank {
+      font-weight: 700;
+      color: #ffffff;
+      margin-right: 5px;
+    }
+
+    .ticker-item span.highlight-green {
+      color: #86efac;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    .ticker-item span.highlight-yellow {
+      color: #fef08a;
+      font-weight: 700;
+      margin-left: 4px;
+    }
+
+    .ticker-separator {
+      opacity: 0.5;
+      margin-left: 18px;
+    }
+
+    @keyframes tickerAnimation {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+
+    /* 2. Brand Header & Logo Bar */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 22px;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .brand-logo-box {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    /* Logo Image Styling */
+    .brand-img {
+      width: 42px;
+      height: 42px;
+      object-fit: contain;
+      border-radius: 8px;
+      background: #0f172a;
+      padding: 3px;
+      border: 1px solid var(--border-color);
+    }
+
+    .brand-text {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.3px;
+    }
+
+    .brand-extra {
+      color: var(--accent-green);
+    }
+
+    .brand-dotcom {
+      color: var(--accent-red);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-actions a {
+      color: var(--primary);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.2);
+      transition: all 0.2s;
+    }
+
+    .nav-actions a:hover {
+      background: rgba(56, 189, 248, 0.2);
+    }
+
+    .update-badge {
+      background: rgba(34, 197, 94, 0.12);
+      color: #4ade80;
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      font-size: 12px;
+      padding: 6px 12px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+
+    /* Header Section */
+    .header-section {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .header-section h1 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 800;
+      color: #ffffff;
+      margin-bottom: 8px;
+    }
+
+    .header-section h1 span {
+      color: var(--primary);
+    }
+
+    .header-section p {
+      color: var(--text-muted);
+      font-size: 15px;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Quick Highlight Cards */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 16px 20px;
+      border-radius: 12px;
+    }
+
+    .stat-card .label {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .stat-card .value {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent-rate-green);
+    }
+
+    .stat-card .value.yellow {
+      color: var(--accent-yellow);
+    }
+
+    /* Search & Filters */
+    .controls-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 13px 16px;
+      background: var(--bg-main);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 15px;
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .search-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    }
+
+    .filter-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip-btn {
+      background: var(--bg-main);
+      color: var(--text-muted);
+      border: 1px solid var(--border-color);
+      padding: 7px 14px;
+      border-radius: 6px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .chip-btn:hover {
+      color: #fff;
+      background: var(--border-color);
+    }
+
+    .chip-btn.active {
+      background: var(--primary);
+      color: #0f172a;
+      border-color: var(--primary);
+    }
+
+    /* Table */
+    .table-container {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .table-responsive {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+      font-size: 14px;
+      min-width: 780px;
+    }
+
+    thead th {
+      background: #131d2e;
+      color: var(--primary);
+      padding: 14px 16px;
+      font-weight: 600;
+      border-bottom: 2px solid var(--border-color);
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border-color);
+      vertical-align: middle;
+    }
+
+    tbody tr:hover {
+      background-color: var(--bg-card-hover);
+    }
+
+    tbody tr:last-child td {
+      border-bottom: none;
+    }
+
+    .bank-name {
+      font-weight: 600;
+      color: #ffffff;
+      font-size: 15px;
+    }
+
+    .bank-badge {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 500;
+      margin-top: 3px;
+    }
+
+    .badge-psu { background: rgba(59, 130, 246, 0.15); color: #93c5fd; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .badge-pvt { background: rgba(168, 85, 247, 0.15); color: #d8b4fe; border: 1px solid rgba(168, 85, 247, 0.3); }
+    .badge-sfb { background: rgba(234, 179, 8, 0.15); color: #fde047; border: 1px solid rgba(234, 179, 8, 0.3); }
+
+    .val-fd { color: var(--accent-rate-green); font-weight: 700; }
+    .val-loan { color: var(--accent-yellow); font-weight: 600; }
+
+    .empty-msg {
+      text-align: center;
+      padding: 40px 20px;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 10px;
+      color: var(--text-muted);
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. चलती हुई टॉप ब्याज दर पट्टी (Running Ticker) -->
+  <div class="ticker-wrap">
+    <div class="ticker-title">⚡ लाइव दरें:</div>
+    <div class="ticker-content" id="liveTickerContent">
+      <!-- Ticker items dynamically injected -->
+    </div>
+  </div>
+
+  <div class="container">
+    
+    <!-- 2. टॉप नेविगेशन + लोगो बार -->
+    <div class="top-nav">
+      <a href="index.html" class="brand-logo-box">
+        <!-- अगर logo.png फाइल उपलब्ध होगी तो दिखेगी, नहीं तो सिर्फ टेक्स्ट लोगो आएगा -->
+        <img src="logo.png" alt="ExtrasalaryDotcom Logo" class="brand-img" onerror="this.style.display='none'">
+        <div class="brand-text">
+          <span class="brand-extra">Extrasalary</span><span class="brand-dotcom">Dotcom</span>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <a href="index.html">← होमपेज</a>
+        <span class="update-badge">● 2026 अपडेटेड</span>
+      </div>
+    </div>
+
+    <!-- हेडर सेक्शन -->
+    <header class="header-section">
+      <h1>भारतीय बैंकों की <span>ब्याज दरें (Interest Rates)</span></h1>
+      <p>फिक्स्ड डिपॉजिट (FD), होम लोन और पर्सनल लोन के ताज़ा ब्याज दरों की लाइव तुलना करें।</p>
+    </header>
+
+    <!-- क्विक हाईलाइट कार्ड्स -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="label">उच्चतम FD दर (Senior Citizen)</div>
+        <div class="value">9.50% p.a.</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">न्यूनतम होम लोन दर</div>
+        <div class="value yellow">8.35% p.a. से शुरू</div>
+      </div>
+      <div class="stat-card">
+        <div class="label">ट्रैक किए गए कुल बैंक</div>
+        <div class="value" id="totalBanksCount">15+ बैंक</div>
+      </div>
+    </div>
+
+    <!-- सर्च व फ़िल्टर बार -->
+    <div class="controls-card">
+      <input 
+        type="text" 
+        id="bankSearch" 
+        class="search-input" 
+        placeholder="बैंक का नाम या प्रकार खोजें (उदा. SBI, HDFC, सरकारी, प्राइवेट)..." 
+        onkeyup="filterData()"
+      >
+      <div class="filter-chips">
+        <button class="chip-btn active" onclick="setFilter('all', this)">सभी बैंक (All)</button>
+        <button class="chip-btn" onclick="setFilter('सरकारी (PSU)', this)">सरकारी (PSU)</button>
+        <button class="chip-btn" onclick="setFilter('प्राइवेट', this)">प्राइवेट बैंक</button>
+        <button class="chip-btn" onclick="setFilter('स्मॉल फाइनेंस', this)">स्मॉल फाइनेंस बैंक</button>
+      </div>
+    </div>
+
+    <!-- मुख्य तुलना टेबल -->
+    <div class="table-container">
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>बैंक का नाम</th>
+              <th>FD दर (सामान्य नागरिक)</th>
+              <th>FD दर (वरिष्ठ नागरिक)</th>
+              <th>होम लोन दर (Home Loan)</th>
+              <th>पर्सनल लोन दर (Personal Loan)</th>
+            </tr>
+          </thead>
+          <tbody id="bankTableBody">
+            <!-- Data dynamically populated -->
+          </tbody>
+        </table>
+      </div>
+      <div id="noResults" class="empty-msg" style="display: none;">
+        आपके द्वारा खोजे गए बैंक की जानकारी उपलब्ध नहीं है। कृपया कोई दूसरा नाम खोजें।
+      </div>
+    </div>
+
+    <footer>
+      <p>© ExtrasalaryDotcom - वित्तीय जानकारी और टूल्स। ब्याज दरें बैंक की नीतियों के अनुसार बदल सकती हैं।</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const bankDatabase = [
+      { name: "State Bank of India (SBI)", type: "सरकारी (PSU)", fdGen: "6.80% - 7.00%", fdSr: "7.30% - 7.50%", homeLoan: "8.50% - 9.65%", personalLoan: "11.15% - 14.30%" },
+      { name: "HDFC Bank", type: "प्राइवेट", fdGen: "7.00% - 7.25%", fdSr: "7.50% - 7.75%", homeLoan: "8.70% - 9.80%", personalLoan: "10.50% - 16.00%" },
+      { name: "ICICI Bank", type: "प्राइवेट", fdGen: "7.00% - 7.25%", fdSr: "7.50% - 7.75%", homeLoan: "8.75% - 9.65%", personalLoan: "10.75% - 16.50%" },
+      { name: "Punjab National Bank (PNB)", type: "सरकारी (PSU)", fdGen: "6.80% - 7.25%", fdSr: "7.30% - 7.75%", homeLoan: "8.40% - 10.15%", personalLoan: "11.40% - 15.00%" },
+      { name: "Bank of Baroda (BOB)", type: "सरकारी (PSU)", fdGen: "6.85% - 7.15%", fdSr: "7.35% - 7.65%", homeLoan: "8.40% - 10.60%", personalLoan: "10.90% - 15.60%" },
+      { name: "Axis Bank", type: "प्राइवेट", fdGen: "7.10% - 7.25%", fdSr: "7.60% - 7.75%", homeLoan: "8.75% - 9.65%", personalLoan: "10.65% - 15.50%" },
+      { name: "Kotak Mahindra Bank", type: "प्राइवेट", fdGen: "7.00% - 7.40%", fdSr: "7.50% - 7.90%", homeLoan: "8.70% - 9.60%", personalLoan: "10.99% - 16.99%" },
+      { name: "Union Bank of India", type: "सरकारी (PSU)", fdGen: "6.75% - 7.25%", fdSr: "7.25% - 7.75%", homeLoan: "8.35% - 10.50%", personalLoan: "11.10% - 14.50%" },
+      { name: "Canara Bank", type: "सरकारी (PSU)", fdGen: "6.85% - 7.25%", fdSr: "7.35% - 7.75%", homeLoan: "8.40% - 10.45%", personalLoan: "10.95% - 14.25%" },
+      { name: "Bank of India (BOI)", type: "सरकारी (PSU)", fdGen: "6.80% - 7.30%", fdSr: "7.30% - 7.80%", homeLoan: "8.45% - 10.25%", personalLoan: "11.25% - 14.75%" },
+      { name: "IndusInd Bank", type: "प्राइवेट", fdGen: "7.25% - 7.75%", fdSr: "7.75% - 8.25%", homeLoan: "8.85% - 9.95%", personalLoan: "10.49% - 15.00%" },
+      { name: "Federal Bank", type: "प्राइवेट", fdGen: "7.00% - 7.40%", fdSr: "7.50% - 7.90%", homeLoan: "8.80% - 9.70%", personalLoan: "11.49% - 14.99%" },
+      { name: "Unity Small Finance Bank", type: "स्मॉल फाइनेंस", fdGen: "8.50% - 9.00%", fdSr: "9.00% - 9.50%", homeLoan: "9.50% से शुरू", personalLoan: "13.00% से शुरू" },
+      { name: "AU Small Finance Bank", type: "स्मॉल फाइनेंस", fdGen: "7.75% - 8.00%", fdSr: "8.25% - 8.50%", homeLoan: "9.15% से शुरू", personalLoan: "12.50% से शुरू" },
+      { name: "Equitas Small Finance Bank", type: "स्मॉल फाइनेंस", fdGen: "8.00% - 8.25%", fdSr: "8.50% - 8.75%", homeLoan: "9.25% से शुरू", personalLoan: "12.99% से शुरू" }
+    ];
+
+    let currentCategory = 'all';
+
+    // चलती हुई पट्टी (Ticker) के लिए डेटा लोड करें
+    function initTicker() {
+      const tickerContainer = document.getElementById("liveTickerContent");
+      const tickerList = [
+        { bank: "SBI", fd: "7.00%", home: "8.50%" },
+        { bank: "HDFC", fd: "7.25%", home: "8.70%" },
+        { bank: "ICICI", fd: "7.25%", home: "8.75%" },
+        { bank: "PNB", fd: "7.25%", home: "8.40%" },
+        { bank: "BOB", fd: "7.15%", home: "8.40%" },
+        { bank: "Axis Bank", fd: "7.25%", home: "8.75%" },
+        { bank: "Unity Bank", fd: "9.00%", home: "9.50%" },
+        { bank: "Union Bank", fd: "7.25%", home: "8.35%" }
+      ];
+
+      // लूप को बिना रुके चलाने के लिए दो बार जोड़ते हैं
+      const fullList = [...tickerList, ...tickerList];
+      tickerContainer.innerHTML = fullList.map(item => `
+        <div class="ticker-item">
+          <span class="bank">${item.bank}:</span>
+          FD दर <span class="highlight-green">${item.fd}</span> | 
+          होम लोन <span class="highlight-yellow">${item.home}</span>
+          <span class="ticker-separator">✦</span>
+        </div>
+      `).join('');
+    }
+
+    function getBadgeClass(type) {
+      if (type.includes("सरकारी")) return "badge-psu";
+      if (type.includes("प्राइवेट")) return "badge-pvt";
+      return "badge-sfb";
+    }
+
+    function renderBankTable(list) {
+      const tbody = document.getElementById("bankTableBody");
+      const noResults = document.getElementById("noResults");
+      tbody.innerHTML = "";
+
+      if (list.length === 0) {
+        noResults.style.display = "block";
+        return;
+      }
+      noResults.style.display = "none";
+
+      list.forEach(bank => {
+        const badgeClass = getBadgeClass(bank.type);
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>
+            <div class="bank-name">${bank.name}</div>
+            <span class="bank-badge ${badgeClass}">${bank.type}</span>
+          </td>
+          <td class="val-fd">${bank.fdGen}</td>
+          <td class="val-fd">${bank.fdSr}</td>
+          <td class="val-loan">${bank.homeLoan}</td>
+          <td class="val-loan">${bank.personalLoan}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    }
+
+    function filterData() {
+      const searchVal = document.getElementById("bankSearch").value.toLowerCase().trim();
+      const filtered = bankDatabase.filter(bank => {
+        const matchesCategory = currentCategory === 'all' || bank.type.toLowerCase().includes(currentCategory.toLowerCase());
+        const matchesSearch = bank.name.toLowerCase().includes(searchVal) || bank.type.toLowerCase().includes(searchVal);
+        return matchesCategory && matchesSearch;
+      });
+      renderBankTable(filtered);
+    }
+
+    function setFilter(cat, element) {
+      currentCategory = cat;
+      document.querySelectorAll(".chip-btn").forEach(btn => btn.classList.remove("active"));
+      element.classList.add("active");
+      filterData();
+    }
+
+    // इनिशियलाइज़ेशन
+    initTicker();
+    document.getElementById("totalBanksCount").innerText = `${bankDatabase.length} बैंक`;
+    renderBankTable(bankDatabase);
+  </script>
+</body>
+</html>
