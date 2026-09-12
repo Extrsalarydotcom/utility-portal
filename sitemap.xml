@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- होमपेज (index.html) -->
+  <url>
+    <loc>https://extrsalarydotcom.github.io/utility-portal/</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  <!-- बैंक रेट पेज (bankrate.html) -->
+  <url>
+    <loc>https://extrsalarydotcom.github.io/utility-portal/bank-rate.html</loc>
+    <lastmod>2026-09-12</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
