@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://extrsalarydotcom.github.io/utility-portal/sitemap.xml
