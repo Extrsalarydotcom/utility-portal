@@ -1699,6 +1699,14 @@
     runEmiCalc();
     runSipCalc();
     calculateSolar();
+    // क्लिपबोर्ड कॉपी और कट इवेंट को पूरी तरह शून्य (Clear) करना
+document.addEventListener('copy', function(e) {
+  e.clipboardData.setData('text/plain', '');
+  e.preventDefault();
+});
+document.addEventListener('cut', function(e) {
+  e.preventDefault();
+});
   </script>
   <!-- कस्टम विज्ञापन स्क्रिप्ट -->
   <script src="custom-ads.js" defer></script>
