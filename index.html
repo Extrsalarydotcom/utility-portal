@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="google-site-verification" content="d6MtKQXJvde0u_oPsSvnkRxMbT5l9IIQo-BUjjWpZwU" />
   <meta name="msvalidate.01" content="A1525C5991787D2230E6E8C1896DC40A" />
   <meta name="robots" content="index, follow">
@@ -66,25 +67,23 @@
     }
     .slider { accent-color: #4f46e5; }
     .modal-active { overflow: hidden; }
-  </style>
-  <style>
-body {
-    -webkit-touch-callout: none; /* मोबाइल ब्राउज़र का पॉपअप मेनू ब्लॉक करता है */
-    -webkit-user-select: none;   /* सफारी और क्रोम में सिलेक्शन बंद */
-    -moz-user-select: none;      /* फ़ायरफ़ॉक्स */
-    -ms-user-select: none;       /* एज */
-    user-select: none;           /* स्टैंडर्ड */
-}
 
-/* सर्च बॉक्स चालू रखने के लिए ताकि लोग सर्च कर सकें */
-input, textarea {
-    -webkit-touch-callout: default !important;
-    -webkit-user-select: auto !important;
-    -moz-user-select: auto !important;
-    -ms-user-select: auto !important;
-    user-select: auto !important;
-}
-</style>
+    /* सुरक्षा: टेक्स्ट सिलेक्शन और सुरक्षा सुरक्षा */
+    body {
+      -webkit-touch-callout: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+    input, textarea, select {
+      -webkit-touch-callout: default !important;
+      -webkit-user-select: auto !important;
+      -moz-user-select: auto !important;
+      -ms-user-select: auto !important;
+      user-select: auto !important;
+    }
+  </style>
 </head>
 
 <body class="bg-slate-50 text-slate-800 dark:bg-slate-950 dark:text-slate-100 font-sans antialiased transition-colors duration-300">
@@ -236,7 +235,7 @@ input, textarea {
   </section>
 
   <!-- ================= 4. इमरजेंसी हेल्पलाइन बार ================= -->
-  <section id="emergency" class="max-w-7xl mx-auto px-4 -mt-4 mb-12">
+  <section id="emergency" class="max-w-7xl mx-auto px-4 -mt-4 mb-8">
     <div class="bg-gradient-to-r from-rose-600 to-red-700 rounded-2xl p-4 sm:p-6 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-4">
       <div class="flex items-center gap-3 text-center md:text-left">
         <div class="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center text-2xl flex-shrink-0">
@@ -263,10 +262,84 @@ input, textarea {
       </div>
     </div>
   </section>
-<!-- ================= विज्ञापन कंटेनर (Ad Unit) ================= -->
+
+  <!-- ================= 🚨 चमकदार नेशनल इवेंट & मुख्य नोटिस बोर्ड (Devanagari) ================= -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-8">
+    <div class="relative overflow-hidden rounded-3xl p-5 sm:p-6 bg-gradient-to-r from-amber-500/10 via-rose-500/10 to-indigo-500/10 dark:from-amber-950/40 dark:via-rose-950/40 dark:to-indigo-950/40 border-2 border-rose-500/40 shadow-[0_0_30px_rgba(244,63,94,0.18)]">
+      
+      <!-- हेडिंग और लाइव इंडिकेटर -->
+      <div class="flex flex-wrap items-center justify-between gap-3 mb-5 pb-3 border-b border-rose-200/50 dark:border-rose-900/50">
+        <div class="flex items-center gap-3">
+          <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-black bg-rose-600 text-white shadow-lg shadow-rose-600/40 animate-pulse">
+            <i class="fa-solid fa-bullhorn"></i> मुख्य राष्ट्रीय इवेंट / विशेष घोषणा
+          </span>
+          <span class="text-xs font-bold text-slate-800 dark:text-slate-200">
+            देशभर के नागरिकों के लिए ताज़ा सूचनाएं
+          </span>
+        </div>
+        <div id="liveDateDisplay" class="text-xs font-bold text-slate-700 dark:text-slate-300 bg-white/90 dark:bg-slate-800/90 px-3.5 py-1.5 rounded-xl border border-slate-200 dark:border-slate-700 shadow-sm">
+          📅 आज की तारीख लोड हो रही है...
+        </div>
+      </div>
+
+      <!-- इवेंट्स कार्ड्स की ग्रिड -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        
+        <!-- इवेंट कार्ड 1: सोलर सब्सिडी -->
+        <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 rounded-2xl border border-rose-200 dark:border-slate-800 shadow-sm relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs font-bold text-rose-600 dark:text-rose-400">📅 नया सरकारी आवेदन</span>
+              <span class="bg-rose-500 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">खास सूचना</span>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1.5">पीएम सूर्य घर योजना (300 यूनिट फ्री बिजली)</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">घर की छत पर सोलर पैनल लगाने पर ₹78,000 की सरकारी सब्सिडी और जीरो बिजली बिल का लाभ उठाएं।</p>
+          </div>
+          <button onclick="openModal('solarModal')" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1">
+            सब्सिडी गाइड व फॉर्म देखें <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </button>
+        </div>
+
+        <!-- इवेंट कार्ड 2: शेयर बाज़ार और RBI -->
+        <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 rounded-2xl border border-indigo-200 dark:border-slate-800 shadow-sm relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs font-bold text-indigo-600 dark:text-indigo-400">📈 साप्ताहिक मार्केट अपडेट</span>
+              <span class="bg-indigo-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">मार्केट अलर्ट</span>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1.5">शेयर बाज़ार, सोना व RBI ब्याज दरें</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">इस हफ्ते आने वाले आर्थिक आंकड़ों, मुद्रास्फीति और विदेशी बाज़ार की चाल पर विशेष नज़र बनाए रखें।</p>
+          </div>
+          <a href="#markets" class="text-xs font-bold text-indigo-600 dark:text-indigo-400 hover:underline inline-flex items-center gap-1">
+            लाइव चार्ट्स व कैलेंडर देखें <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+        <!-- इवेंट कार्ड 3: ब्रांड स्टोर अपडेट -->
+        <div class="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md p-4 rounded-2xl border border-emerald-200 dark:border-slate-800 shadow-sm relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-center mb-1">
+              <span class="text-xs font-bold text-emerald-600 dark:text-emerald-400">🔥 ExtrasalaryDotcom</span>
+              <span class="bg-emerald-600 text-white text-[10px] font-bold px-2 py-0.5 rounded-md">नया एडिशन</span>
+            </div>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm mb-1.5">60-Day & Master Trader Blueprint</h4>
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-3">ट्रेडिंग साइकोलॉजी, स्मार्ट मनी कॉन्सेप्ट्स और ऑटोमेटेड P&L शीट्स अब डिजिटल स्टोर पर लाइव हैं।</p>
+          </div>
+          <a href="https://extrasalarydotcom.github.io/Extrasalary-store/" target="_blank" rel="noopener noreferrer" class="text-xs font-bold text-emerald-600 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
+            स्टोर पर जाएं <i class="fa-solid fa-arrow-right text-[10px]"></i>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ================= विज्ञापन कंटेनर (Ad Unit) ================= -->
   <div class="max-w-7xl mx-auto px-4 my-6">
     <div id="self-hosted-ad-container"></div>
   </div>
+
   <!-- ================= 5. ट्रेवल बुकिंग हब ================= -->
   <section id="travel-booking" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-10">
     <div class="bg-white dark:bg-slate-900 rounded-3xl border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden">
@@ -418,7 +491,6 @@ input, textarea {
   </section>
 
   <!-- ================= 6. EXTRASALARYDOTCOM डिजिटल स्टोर ================= -->
-  <!-- id="store" और id="store-section" दोनों को सपोर्ट करता है -->
   <section id="store" class="scroll-mt-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-14">
     <div id="store-section" class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-900 via-indigo-950 to-slate-900 border-2 border-amber-400/40 shadow-2xl p-6 sm:p-10 text-white">
       
@@ -491,7 +563,7 @@ input, textarea {
     </div>
   </section>
 
-  <!-- ================= 7. लाइव मार्केट डैशबोर्ड ================= -->
+  <!-- ================= 7. लाइव मार्केट डैशबोर्ड (Dark Theme & Readability 100% Fixed) ================= -->
   <section id="markets" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-12">
     <div class="flex flex-col md:flex-row md:items-end justify-between mb-6">
       <div>
@@ -507,8 +579,8 @@ input, textarea {
       </p>
     </div>
 
-    <!-- Ticker Tape -->
-    <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-200 dark:border-slate-800 mb-6">
+    <!-- Ticker Tape (Dark Theme) -->
+    <div class="rounded-2xl overflow-hidden shadow-sm border border-slate-800 bg-slate-950 mb-6">
       <div class="tradingview-widget-container">
         <div class="tradingview-widget-container__widget"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
@@ -546,11 +618,11 @@ input, textarea {
           </div>
           <p class="text-xs text-slate-500 mb-4 leading-relaxed">निफ्टी 50, बैंक निफ्टी और प्रमुख सूचकांकों के लाइव चार्ट और ट्रेंड।</p>
         </div>
-        <div class="rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800">
+        <div class="rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 bg-slate-950">
           <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-            { "symbol": "NSE:NIFTY", "width": "100%", "height": 180, "locale": "in", "dateRange": "1M", "colorTheme": "dark", "isTransparent": true, "autosize": true }
+            { "symbol": "NSE:NIFTY", "width": "100%", "height": 180, "locale": "in", "dateRange": "1M", "colorTheme": "dark", "isTransparent": false, "autosize": true }
             </script>
           </div>
         </div>
@@ -569,11 +641,11 @@ input, textarea {
           </div>
           <p class="text-xs text-slate-500 mb-4 leading-relaxed">बिटकॉइन (BTC), इथेरियम और प्रमुख क्रिप्टो कॉइन्स के डॉलर व रुपया रेट।</p>
         </div>
-        <div class="rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800">
+        <div class="rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 bg-slate-950">
           <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-            { "symbol": "BINANCE:BTCUSDT", "width": "100%", "height": 180, "locale": "in", "dateRange": "1M", "colorTheme": "dark", "isTransparent": true, "autosize": true }
+            { "symbol": "BINANCE:BTCUSDT", "width": "100%", "height": 180, "locale": "in", "dateRange": "1M", "colorTheme": "dark", "isTransparent": false, "autosize": true }
             </script>
           </div>
         </div>
@@ -592,18 +664,18 @@ input, textarea {
           </div>
           <p class="text-xs text-slate-500 mb-4 leading-relaxed">अंतर्राष्ट्रीय सोना भाव (XAU/USD) और डॉलर बनाम रुपया (USD/INR) एक्सचेंज रेट।</p>
         </div>
-        <div class="rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800">
+        <div class="rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 bg-slate-950">
           <div class="tradingview-widget-container">
             <div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-            { "symbol": "OANDA:XAUUSD", "width": "100%", "height": 180, "locale": "in", "dateRange": "1M", "colorTheme": "dark", "isTransparent": true, "autosize": true }
+            { "symbol": "OANDA:XAUUSD", "width": "100%", "height": 180, "locale": "in", "dateRange": "1M", "colorTheme": "dark", "isTransparent": false, "autosize": true }
             </script>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- ट्रेडिंग और मार्केट हब (न्यूज़ & इकोनॉमिक कैलेंडर विजेट्स) -->
+    <!-- ट्रेडिंग और मार्केट हब (न्यूज़ & इकोनॉमिक कैलेंडर विजेट्स - 100% डार्क बैकग्राउंड फिक्स) -->
     <div class="mt-10 mb-6 w-full">
       <div class="mb-5">
         <h2 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -616,53 +688,51 @@ input, textarea {
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Stock News Widget -->
-        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
+        <!-- Stock News Widget (Full Dark Container) -->
+        <div class="rounded-3xl border border-slate-800 bg-slate-900 p-5 shadow-2xl text-white">
           <div class="flex items-center gap-2 mb-3">
-            <div class="w-8 h-8 rounded-lg bg-rose-100 dark:bg-rose-950 text-rose-600 flex items-center justify-center font-bold text-sm">
+            <div class="w-8 h-8 rounded-lg bg-rose-950 text-rose-400 flex items-center justify-center font-bold text-sm">
               <i class="fa-regular fa-newspaper"></i>
             </div>
-            <h3 class="font-bold text-slate-900 dark:text-white text-sm">इंडियन स्टॉक मार्केट न्यूज़</h3>
+            <h3 class="font-bold text-white text-sm">इंडियन स्टॉक मार्केट ताज़ा न्यूज़</h3>
           </div>
-          <div class="rounded-xl overflow-hidden">
+          <div class="rounded-xl overflow-hidden bg-slate-950">
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-timeline.js" async>
               {
-                "feedMode": "market",
-                "market": "stock",
-                "isTransparent": true,
+                "feedMode": "all_symbols",
+                "isTransparent": false,
                 "displayMode": "regular",
                 "width": "100%",
-                "height": 480,
+                "height": 450,
                 "colorTheme": "dark",
-                "locale": "en_IN"
+                "locale": "in"
               }
               </script>
             </div>
           </div>
         </div>
 
-        <!-- Economic Calendar Widget -->
-        <div class="rounded-2xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 p-4 shadow-sm">
+        <!-- Economic Calendar Widget (Full Dark Container) -->
+        <div class="rounded-3xl border border-slate-800 bg-slate-900 p-5 shadow-2xl text-white">
           <div class="flex items-center gap-2 mb-3">
-            <div class="w-8 h-8 rounded-lg bg-amber-100 dark:bg-amber-950 text-amber-600 flex items-center justify-center font-bold text-sm">
+            <div class="w-8 h-8 rounded-lg bg-amber-950 text-amber-400 flex items-center justify-center font-bold text-sm">
               <i class="fa-regular fa-calendar-days"></i>
             </div>
-            <h3 class="font-bold text-slate-900 dark:text-white text-sm">आर्थिक इवेंट्स & RBI दरें (Calendar)</h3>
+            <h3 class="font-bold text-white text-sm">आर्थिक इवेंट्स & RBI दरें (Calendar)</h3>
           </div>
-          <div class="rounded-xl overflow-hidden">
+          <div class="rounded-xl overflow-hidden bg-slate-950">
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
               {
-                "width": "100%",
-                "height": 480,
                 "colorTheme": "dark",
-                "isTransparent": true,
-                "locale": "en_IN",
-                "importanceFilter": "0,1",
-                "currencyFilter": "INR,USD,EUR"
+                "isTransparent": false,
+                "width": "100%",
+                "height": 450,
+                "locale": "in",
+                "importanceFilter": "-1,0,1"
               }
               </script>
             </div>
@@ -707,8 +777,8 @@ input, textarea {
         </a>
       </div>
 
-      <!-- Card 1 -->
-      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पहचान पत्र मोबाइल नंबर पता सुधार ऑनलाइन आधार">
+      <!-- Card 1: Aadhaar -->
+      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पहचान पत्र मोबाइल नंबर पता सुधार ऑनलाइन आधार myaadhaar">
         <div>
           <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center text-xl mb-4">
             <i class="fa-solid fa-id-card"></i>
@@ -717,16 +787,16 @@ input, textarea {
             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 text-blue-600 dark:bg-blue-900/40">दस्तावेज सुधार</span>
             <span class="text-xs text-slate-400">3 मिनट रीडिंग</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">पहचान पत्र में पता और मोबाइल अपडेट</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">घर बैठे आधिकारिक पोर्टल से अपना नया पता, नाम या मोबाइल नंबर लिंक स्थिति देखने का सुरक्षित तरीका।</p>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">आधार कार्ड में पता (Address) ऑनलाइन बदलें</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">घर बैठे MyAadhaar पोर्टल से नया पता अपडेट करने और मोबाइल नंबर लिंकिंग की संपूर्ण आसान गाइड।</p>
         </div>
         <button onclick="openModal('aadhaarModal')" class="w-full inline-flex items-center justify-between text-xs font-bold text-brand-600 hover:text-brand-700 dark:text-brand-400 pt-3 border-t border-slate-100 dark:border-slate-800 transition">
-          <span>पूरी प्रक्रिया पढ़ें</span>
+          <span>स्टेप-बाय-स्टेप प्रक्रिया पढ़ें</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
 
-      <!-- Card 2 -->
+      <!-- Card 2: Ayushman -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="आयुष्मान कार्ड 5 लाख मुफ्त इलाज e-kyc ऑनलाइन">
         <div>
           <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-950 text-emerald-600 flex items-center justify-center text-xl mb-4">
@@ -745,7 +815,7 @@ input, textarea {
         </button>
       </div>
 
-      <!-- Card 3 -->
+      <!-- Card 3: Solar -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पीएम सूर्य घर योजना सोलर पैनल 300 यूनिट मुफ्त बिजली सब्सिडी">
         <div>
           <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-950 text-amber-600 flex items-center justify-center text-xl mb-4">
@@ -764,8 +834,8 @@ input, textarea {
         </button>
       </div>
 
-      <!-- Card 4 -->
-      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पैन कार्ड लिंक स्टेटस नया इंस्टेंट ई-पैन pan card">
+      <!-- Card 4: Instant PAN -->
+      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पैन कार्ड लिंक स्टेटस नया इंस्टेंट ई-पैन pan card incometax e-pan">
         <div>
           <div class="w-12 h-12 rounded-xl bg-violet-100 dark:bg-violet-950 text-violet-600 flex items-center justify-center text-xl mb-4">
             <i class="fa-solid fa-address-card"></i>
@@ -774,16 +844,16 @@ input, textarea {
             <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-violet-50 text-violet-600 dark:bg-violet-900/40">टैक्स व बैंकिंग</span>
             <span class="text-xs text-slate-400">10 मिनट प्रक्रिया</span>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">इंस्टेंट ई-पैन (Instant e-PAN) फ्री में पाएं</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">डिजिटल OTP सत्यापन द्वारा 10 मिनट में डिजिटल पैन कार्ड बनाएं और लिंकिंग स्टेटस तुरंत चेक करें।</p>
+          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">सिर्फ 10 मिनट में फ्री 'इंस्टेंट ई-पैन कार्ड'</h3>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">बिना किसी फॉर्म को भेजे डिजिटल OTP सत्यापन द्वारा 10 मिनट में ई-पैन कार्ड बनाएं और डाउनलोड करें।</p>
         </div>
         <button onclick="openModal('panModal')" class="w-full inline-flex items-center justify-between text-xs font-bold text-brand-600 hover:text-brand-700 dark:text-brand-400 pt-3 border-t border-slate-100 dark:border-slate-800 transition">
-          <span>पैन अप्लाई गाइड</span>
+          <span>ई-पैन बनाने का तरीका</span>
           <i class="fa-solid fa-arrow-right"></i>
         </button>
       </div>
 
-      <!-- Card 5 -->
+      <!-- Card 5: Ration -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="राशन कार्ड नया नाम जोड़ना राशन लिस्ट ऑनलाइन चेक">
         <div>
           <div class="w-12 h-12 rounded-xl bg-teal-100 dark:bg-teal-950 text-teal-600 flex items-center justify-center text-xl mb-4">
@@ -802,7 +872,7 @@ input, textarea {
         </button>
       </div>
 
-      <!-- Card 6 -->
+      <!-- Card 6: Scholarship -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="छात्रवृत्ति स्कॉलरशिप 10वीं 12वीं कॉलेज छात्र सहायता">
         <div>
           <div class="w-12 h-12 rounded-xl bg-pink-100 dark:bg-pink-950 text-pink-600 flex items-center justify-center text-xl mb-4">
@@ -813,7 +883,7 @@ input, textarea {
             <span class="text-xs text-slate-400">NSP पोर्टल</span>
           </div>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">10वीं/12वीं पास छात्रों के लिए स्कॉलरशिप</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">नेशनल स्कॉलरशिप पोर्टल (NSP) पर आवेदन करें और उच्च शिक्षा के लिए सहायता प्राप्त करें।</p>
+          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">नेशनल स्कॉलरशिप पोर्टल (NSP) पर आवेदन करें और उच्च शिक्षा के लिए सरकारी सहायता प्राप्त करें।</p>
         </div>
         <button onclick="openModal('scholarshipModal')" class="w-full inline-flex items-center justify-between text-xs font-bold text-brand-600 hover:text-brand-700 dark:text-brand-400 pt-3 border-t border-slate-100 dark:border-slate-800 transition">
           <span>छात्रवृत्ति लिस्ट देखें</span>
@@ -1078,11 +1148,21 @@ input, textarea {
 
       <details class="group bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 transition">
         <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center text-slate-800 dark:text-slate-200">
-          <span>क्या पहचान पत्र में मोबाइल नंबर घर बैठे लिंक हो सकता है?</span>
+          <span>क्या आधार कार्ड में पता और मोबाइल नंबर घर बैठे बदल सकते हैं?</span>
           <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
         </summary>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
-          सुरक्षा कारणों से नया मोबाइल नंबर केवल आधिकारिक सेवा केंद्र या डाकिए के बायोमेट्रिक ऑथेंटिकेशन द्वारा ही अपडेट किया जाता है। पता आप ऑनलाइन पोर्टल से बदल सकते हैं।
+          आप अपना नया पता वैध दस्तावेज़ अपलोड करके घर बैठे MyAadhaar पोर्टल से बदल सकते हैं। लेकिन सुरक्षा कारणों से मोबाइल नंबर या बायोमेट्रिक अपडेट करवाने के लिए आपको नजदीकी आधार सेवा केंद्र या डाकिए के पास जाना होता है।
+        </p>
+      </details>
+
+      <details class="group bg-white dark:bg-slate-900 p-4 rounded-xl border border-slate-200 dark:border-slate-800 transition">
+        <summary class="font-semibold text-sm cursor-pointer list-none flex justify-between items-center text-slate-800 dark:text-slate-200">
+          <span>इंस्टेंट ई-पैन (Instant e-PAN) बनने में कितना समय लगता है?</span>
+          <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
+        </summary>
+        <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
+          यदि आपके आधार कार्ड में मोबाइल नंबर लिंक है, तो इनकम टैक्स पोर्टल पर आधार OTP वेरीफाई करके मात्र 10 मिनट के अंदर डिजिटल ई-पैन कार्ड बिल्कुल मुफ्त बन जाता है।
         </p>
       </details>
 
@@ -1092,7 +1172,7 @@ input, textarea {
           <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
         </summary>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
-          यदि आपका राशन कार्ड और पहचान डेटा 80% से ज्यादा मैच होता है, तो e-KYC पूरा होते ही कार्ड तुरंत अप्रूव हो जाता है और आप 5 मिनट में डिजिटल कार्ड डाउनलोड कर सकते हैं।
+          यदि आपका राशन कार्ड और आधार डेटा 80% से ज्यादा मैच होता है, तो e-KYC पूरा होते ही कार्ड तुरंत अप्रूव हो जाता है और आप 5 मिनट में डिजिटल कार्ड डाउनलोड कर सकते हैं।
         </p>
       </details>
 
@@ -1102,7 +1182,7 @@ input, textarea {
           <i class="fa-solid fa-chevron-down text-xs text-slate-400 group-open:rotate-180 transition-transform"></i>
         </summary>
         <p class="text-xs text-slate-600 dark:text-slate-400 mt-3 leading-relaxed">
-          हमारे पोर्टल पर सभी बुकिंग्स आधिकारिक पार्टनर नेटवर्क द्वारा 256-bit SSL एन्क्रिप्शन के साथ पूरी तरह सुरक्षित होती हैं।
+          हमारे पोर्टल पर सभी बुकिंग्स आधिकारिक पार्टनर नेटवर्क (ConfirmTkt / RedBus / Agoda) द्वारा 256-bit SSL एन्क्रिप्शन के साथ पूरी तरह सुरक्षित होती हैं।
         </p>
       </details>
     </div>
@@ -1177,7 +1257,7 @@ input, textarea {
     </div>
   </footer>
 
-  <!-- ================= 13. इन-बिल्ट लीगल व गाइड मोडल्स ================= -->
+  <!-- ================= 13. इन-बिल्ट लीगल व विस्तृत गाइड मोडल्स ================= -->
   <div id="modalBackdrop" class="fixed inset-0 bg-slate-900/75 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
     
     <!-- 13.1 About Us Modal -->
@@ -1194,7 +1274,7 @@ input, textarea {
       </div>
     </div>
 
-    <!-- 13.2 Contact Us Modal (सुरक्षित और सक्रिय FormSubmit Form) -->
+    <!-- 13.2 Contact Us Modal -->
     <div id="contactModal" class="modal-box hidden bg-white dark:bg-slate-900 max-w-2xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[85vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b pb-4 dark:border-slate-800">
         <h3 class="text-xl font-bold text-slate-900 dark:text-white flex items-center gap-2">
@@ -1216,7 +1296,6 @@ input, textarea {
         <p>या नीचे दिया गया फॉर्म भरें, संदेश सीधे हमारी सपोर्ट टीम को पहुंचेगा:</p>
         
         <form action="https://formsubmit.co/supportextrasalarydotcom@gmail.com" method="POST" class="space-y-3">
-          <!-- बोट व स्पैम सुरक्षा -->
           <input type="text" name="_honey" style="display:none">
           <input type="hidden" name="_captcha" value="false">
           <input type="hidden" name="_template" value="table">
@@ -1261,7 +1340,7 @@ input, textarea {
       </div>
     </div>
 
-    <!-- 13.5 Identity Guide Modal -->
+    <!-- 13.5 Aadhaar Guide Modal (पूर्ण व सरल स्टेप्स) -->
     <div id="aadhaarModal" class="modal-box hidden bg-white dark:bg-slate-900 max-w-3xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[88vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b pb-4 dark:border-slate-800">
         <div class="flex items-center gap-3">
@@ -1269,28 +1348,49 @@ input, textarea {
             <i class="fa-solid fa-id-card"></i>
           </div>
           <div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">पहचान पत्र: पता व मोबाइल अपडेट गाइड</h3>
-            <p class="text-[11px] text-slate-500">आधिकारिक UIDAI पोर्टल अनुसार प्रक्रिया</p>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">आधार कार्ड में पता (Address) कैसे अपडेट करें?</h3>
+            <p class="text-[11px] text-slate-500">घर बैठे ऑनलाइन और आधार सेवा केंद्र की संपूर्ण गाइड</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="mt-6 space-y-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-        <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
-          <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2 mb-3">
+        
+        <!-- तरीका 1 -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-3">
+          <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
             <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs">1</span>
-            घर बैठे पता बदलने की ऑनलाइन विधि:
+            तरीका 1: घर बैठे ऑनलाइन पता बदलें (केवल पते के लिए)
           </h4>
           <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
-            <li>UIDAI पोर्टल <strong>myaadhaar.uidai.gov.in</strong> पर जाएं और 'Login' चुनें।</li>
-            <li>अपनी 12 अंकों की पहचान संख्या और कैप्चा डालकर OTP से लॉगिन करें।</li>
-            <li>डैशबोर्ड पर <strong>'Update Online'</strong> चुनकर नया पता और एड्रेस प्रूफ अपलोड करें।</li>
-            <li>ऑनलाइन फीस जमा कर पावती संख्या से स्टेटस ट्रैक करें।</li>
+            <li>UIDAI की आधिकारिक वेबसाइट <strong>myaadhaar.uidai.gov.in</strong> खोलें।</li>
+            <li><strong>'Login'</strong> पर क्लिक करें, आधार नंबर और स्क्रीन का कैप्चा दर्ज कर OTP से लॉगिन करें।</li>
+            <li>डैशबोर्ड पर जाकर <strong>'Update Aadhaar Online'</strong> चुनें और <strong>'Address'</strong> सेलेक्ट करें।</li>
+            <li>नया पता भरें और वैध एड्रेस प्रूफ (जैसे बिजली बिल, वोटर आईडी या बैंक पासबुक) की फोटो/PDF अपलोड करें।</li>
+            <li>ऑनलाइन ₹50 का सरकारी शुल्क भरें। रसीद में मिले <strong>SRN नंबर</strong> से स्टेटस चेक करें (3 से 7 दिनों में अपडेट हो जाता है)।</li>
           </ol>
         </div>
+
+        <!-- तरीका 2 -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-3">
+          <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+            <span class="w-6 h-6 rounded-full bg-slate-700 text-white flex items-center justify-center text-xs">2</span>
+            तरीका 2: आधार केंद्र जाकर अपडेट (नाम, फोटो, मोबाइल नंबर व बायोमेट्रिक)
+          </h4>
+          <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
+            <li>नाम, जन्मतिथि, फोटो या मोबाइल नंबर बदलवाने के लिए नजदीकी बैंक या पोस्ट ऑफिस आधार केंद्र जाएं।</li>
+            <li>लंबी कतार से बचने के लिए UIDAI पोर्टल से पहले ही <strong>'Book Appointment'</strong> कर सकते हैं।</li>
+            <li>काउंटर पर फॉर्म भरें, ओरिजिनल डॉक्यूमेंट दिखाएं और फिंगरप्रिंट/आईरिस वेरिफिकेशन करवाएं।</li>
+            <li>ऑपरेटर से <strong>Acknowledgement Slip (रसीद)</strong> अवश्य लें जिसमें URN नंबर होता है।</li>
+          </ol>
+        </div>
+
         <div class="pt-4 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
           <a href="https://myaadhaar.uidai.gov.in" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition text-xs sm:text-sm">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> MyAadhaar पोर्टल पर जाएं
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> MyAadhaar पोर्टल खोलें
+          </a>
+          <a href="https://appointments.uidai.gov.in/bookappointment.aspx" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl transition text-xs sm:text-sm">
+            <i class="fa-solid fa-calendar-check"></i> आधार सेंटर अप्वाइंटमेंट बुक करें
           </a>
         </div>
       </div>
@@ -1340,7 +1440,7 @@ input, textarea {
           </div>
           <div>
             <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">पीएम सूर्य घर मुफ्त बिजली योजना</h3>
-            <p class="text-[11px] text-slate-500">₹78,000 सब्सिडी और प्रोसेस</p>
+            <p class="text-[11px] text-slate-500">₹78,000 सब्सिडी और रजिस्ट्रेशन प्रोसेस</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
@@ -1365,7 +1465,7 @@ input, textarea {
       </div>
     </div>
 
-    <!-- 13.8 Instant PAN Modal -->
+    <!-- 13.8 Instant PAN Modal (आसान व विस्तृत गाइड) -->
     <div id="panModal" class="modal-box hidden bg-white dark:bg-slate-900 max-w-3xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[88vh] overflow-y-auto">
       <div class="flex justify-between items-center border-b pb-4 dark:border-slate-800">
         <div class="flex items-center gap-3">
@@ -1373,23 +1473,57 @@ input, textarea {
             <i class="fa-solid fa-address-card"></i>
           </div>
           <div>
-            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">इंस्टेंट ई-पैन गाइड</h3>
-            <p class="text-[11px] text-slate-500">10 मिनट में डिजिटल पैन कार्ड बनाएं</p>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">सिर्फ 10 मिनट में फ्री 'इंस्टेंट ई-पैन' कैसे बनाएं?</h3>
+            <p class="text-[11px] text-slate-500">नए विज़िटर्स के लिए बिल्कुल आसान स्टेप-बाय-स्टेप प्रक्रिया</p>
           </div>
         </div>
         <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1"><i class="fa-solid fa-xmark"></i></button>
       </div>
-      <div class="mt-6 space-y-6 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
-        <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
-          <ol class="space-y-2.5 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
-            <li>इनकम टैक्स पोर्टल <strong>eportal.incometax.gov.in</strong> पर जाएं।</li>
-            <li>'Instant e-PAN' चुनकर आवश्यक विवरण और OTP दर्ज करें।</li>
-            <li>प्रक्रिया पूरी होने पर डिजिटल PDF पैन कार्ड डाउनलोड करें।</li>
-          </ol>
+      <div class="mt-6 space-y-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        
+        <div class="bg-violet-50 dark:bg-violet-950/30 p-4 rounded-2xl border border-violet-200 dark:border-violet-900/50">
+          <p class="font-semibold text-violet-900 dark:text-violet-200">💡 जरूरी नियम: ई-पैन बनवाने के लिए आपके आधार में मोबाइल नंबर लिंक होना अनिवार्य है। यह सेवा आयकर विभाग द्वारा 100% मुफ्त (Free) है।</p>
         </div>
+
+        <div class="space-y-3">
+          <h4 class="font-bold text-slate-900 dark:text-white text-base">आसान स्टेप्स:</h4>
+          
+          <div class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700">
+            <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">1</span>
+            <div>
+              <strong class="text-slate-900 dark:text-white block mb-0.5">आयकर पोर्टल खोलें</strong>
+              नीचे दिए गए बटन पर क्लिक करके Income Tax e-Filing पोर्टल पर जाएं।
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700">
+            <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">2</span>
+            <div>
+              <strong class="text-slate-900 dark:text-white block mb-0.5">'Instant e-PAN' चुनें</strong>
+              होमपेज पर 'Quick Links' में <strong>'Get New e-PAN'</strong> पर क्लिक करें।
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700">
+            <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">3</span>
+            <div>
+              <strong class="text-slate-900 dark:text-white block mb-0.5">आधार नंबर व OTP दर्ज करें</strong>
+              अपना 12 अंकों का आधार नंबर डालें और मोबाइल पर आए OTP को भरकर सबमिट करें।
+            </div>
+          </div>
+
+          <div class="flex items-start gap-3 bg-slate-50 dark:bg-slate-800/50 p-3.5 rounded-xl border border-slate-200 dark:border-slate-700">
+            <span class="w-6 h-6 rounded-full bg-violet-600 text-white flex items-center justify-center text-xs font-bold flex-shrink-0 mt-0.5">4</span>
+            <div>
+              <strong class="text-slate-900 dark:text-white block mb-0.5">ई-पैन कार्ड डाउनलोड करें</strong>
+              सत्यापन के 10 मिनट बाद 'Check Status / Download PAN' पर जाकर अपना डिजिटल PDF पैन कार्ड डाउनलोड कर लें।
+            </div>
+          </div>
+        </div>
+
         <div class="pt-4 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
-          <a href="https://eportal.incometax.gov.in" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition text-xs sm:text-sm">
-            <i class="fa-solid fa-arrow-up-right-from-square"></i> ई-पैन पोर्टल खोलें
+          <a href="https://eportal.incometax.gov.in/iec/foservices/#/pre-login/instant-e-pan" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-violet-600 hover:bg-violet-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition text-xs sm:text-sm">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> अभी ई-पैन पोर्टल खोलें
           </a>
         </div>
       </div>
@@ -1457,7 +1591,7 @@ input, textarea {
 
   </div>
 
-  <!-- ================= 14. जावास्क्रिप्ट इंजन ================= -->
+  <!-- ================= 14. जावास्क्रिप्ट व सुरक्षा इंजन ================= -->
   <script>
     // 1. Theme Toggle
     const themeToggleBtn = document.getElementById('themeToggle');
@@ -1467,15 +1601,17 @@ input, textarea {
       document.documentElement.classList.remove('dark');
     }
 
-    themeToggleBtn.addEventListener('click', function() {
-      if (document.documentElement.classList.contains('dark')) {
-        document.documentElement.classList.remove('dark');
-        localStorage.setItem('color-theme', 'light');
-      } else {
-        document.documentElement.classList.add('dark');
-        localStorage.setItem('color-theme', 'dark');
-      }
-    });
+    if (themeToggleBtn) {
+      themeToggleBtn.addEventListener('click', function() {
+        if (document.documentElement.classList.contains('dark')) {
+          document.documentElement.classList.remove('dark');
+          localStorage.setItem('color-theme', 'light');
+        } else {
+          document.documentElement.classList.add('dark');
+          localStorage.setItem('color-theme', 'dark');
+        }
+      });
+    }
 
     // 2. Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -1495,9 +1631,10 @@ input, textarea {
         btn.classList.add('text-slate-500');
       });
 
-      document.getElementById(tabId).classList.remove('hidden');
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
       const activeBtn = document.getElementById('tab-btn-' + tabId);
-      if(activeBtn) {
+      if (activeBtn) {
         activeBtn.classList.remove('text-slate-500');
         activeBtn.classList.add('text-brand-600', 'border-b-2', 'border-brand-600', 'bg-white', 'dark:bg-slate-900');
       }
@@ -1509,7 +1646,7 @@ input, textarea {
       const cards = document.querySelectorAll('.service-card');
       
       if(input.includes('बैंक') || input.includes('bank') || input.includes('fd') || input.includes('loan') || input.includes('ब्याज')) {
-        // यदि बैंक या लोन सर्च किया गया है
+        // Bank search
       } else if(input.includes('ट्रेन') || input.includes('बस') || input.includes('होटल') || input.includes('train') || input.includes('bus') || input.includes('hotel')) {
         const travelSection = document.getElementById('travel-booking');
         if(travelSection) travelSection.scrollIntoView({ behavior: 'smooth' });
@@ -1537,15 +1674,18 @@ input, textarea {
     // 5. Utility Calculator Tabs
     function switchTab(tabId, btn) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      document.getElementById(tabId).classList.remove('hidden');
+      const target = document.getElementById(tabId);
+      if (target) target.classList.remove('hidden');
 
       document.querySelectorAll('.tab-btn').forEach(b => {
         b.classList.remove('bg-white', 'text-indigo-700', 'shadow-md');
         b.classList.add('bg-white/10', 'text-white');
       });
 
-      btn.classList.add('bg-white', 'text-indigo-700', 'shadow-md');
-      btn.classList.remove('bg-white/10', 'text-white');
+      if (btn) {
+        btn.classList.add('bg-white', 'text-indigo-700', 'shadow-md');
+        btn.classList.remove('bg-white/10', 'text-white');
+      }
     }
 
     // 6. EMI Calculator
@@ -1682,7 +1822,8 @@ input, textarea {
     function openModal(modalId) {
       document.getElementById('modalBackdrop').classList.remove('hidden');
       document.querySelectorAll('.modal-box').forEach(el => el.classList.add('hidden'));
-      document.getElementById(modalId).classList.remove('hidden');
+      const target = document.getElementById(modalId);
+      if (target) target.classList.remove('hidden');
       document.body.classList.add('modal-active');
     }
 
@@ -1709,6 +1850,14 @@ input, textarea {
       window.open(`https://api.whatsapp.com/send?text=${encodedMessage}`, '_blank');
     }
 
+    // 12. ऑटोमैटिक आज की लाइव तारीख (हिंदी देवनागरी)
+    const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const curDate = new Date();
+    const dateElem = document.getElementById('liveDateDisplay');
+    if (dateElem) {
+      dateElem.innerText = "📅 आज: " + curDate.toLocaleDateString('hi-IN', dateOptions);
+    }
+
     // Input restrictions & Initial Execution
     const todayStr = new Date().toISOString().split('T')[0];
     const dobElem = document.getElementById('dobInput');
@@ -1717,56 +1866,60 @@ input, textarea {
     runEmiCalc();
     runSipCalc();
     calculateSolar();
-    // राइट-क्लिक और मोबाइल लॉन्ग-प्रेस मेनू ब्लॉक
-document.addEventListener('contextmenu', function(e) {
-    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
-        e.preventDefault();
-        return false;
-    }
-});
 
-// कॉपी और कट ब्लॉक
-document.addEventListener('copy', function(e) {
-    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+    // 13. फुल सिक्योरिटी इंजन (Disable Right Click, Copy, Cut, DevTools)
+    document.addEventListener('contextmenu', function(e) {
+      if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
         e.preventDefault();
         return false;
-    }
-});
+      }
+    });
 
-document.addEventListener('cut', function(e) {
-    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+    document.addEventListener('copy', function(e) {
+      if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
         e.preventDefault();
         return false;
-    }
-});
+      }
+    });
 
-// ड्रैग करके टेक्स्ट सिलेक्ट करना रोकना
-document.addEventListener('dragstart', function(e) {
-    if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
+    document.addEventListener('cut', function(e) {
+      if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
         e.preventDefault();
         return false;
-    }
-});
+      }
+    });
 
-// कीबोर्ड शॉर्टकट ब्लॉक (Ctrl+C, Ctrl+U, F12 आदि)
-document.addEventListener('keydown', function(e) {
-    const isInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
-    if (e.key === 'F12') {
+    document.addEventListener('dragstart', function(e) {
+      if (e.target.tagName !== 'INPUT' && e.target.tagName !== 'TEXTAREA') {
         e.preventDefault();
         return false;
-    }
-    if (e.ctrlKey || e.metaKey) {
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      const isInput = e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA';
+      // F12 Disable
+      if (e.key === 'F12') {
+        e.preventDefault();
+        return false;
+      }
+      // Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C (Inspect Element)
+      if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i' || e.key === 'J' || e.key === 'j' || e.key === 'C' || e.key === 'c')) {
+        e.preventDefault();
+        return false;
+      }
+      // Ctrl + U, S, P, A
+      if (e.ctrlKey || e.metaKey) {
         switch (e.key.toLowerCase()) {
-            case 'c':
-            case 'u':
-            case 's':
-            case 'p':
-            case 'a':
-                if (!isInput) e.preventDefault();
-                break;
+          case 'u':
+          case 's':
+          case 'p':
+          case 'a':
+            if (!isInput) e.preventDefault();
+            break;
         }
-    }
-});
+      }
+    });
   </script>
   <!-- कस्टम विज्ञापन स्क्रिप्ट -->
   <script src="custom-ads.js" defer></script>
