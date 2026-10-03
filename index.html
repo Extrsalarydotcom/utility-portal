@@ -777,24 +777,139 @@
         </a>
       </div>
 
-      <!-- Card 1: Aadhaar -->
-      <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="पहचान पत्र मोबाइल नंबर पता सुधार ऑनलाइन आधार myaadhaar">
-        <div>
-          <div class="w-12 h-12 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center text-xl mb-4">
+      <!-- 13.5 Aadhaar All-in-One Guide Modal (मोबाइल नंबर & पता अपडेट) -->
+    <div id="aadhaarModal" class="modal-box hidden bg-white dark:bg-slate-900 max-w-3xl w-full rounded-3xl p-6 sm:p-8 shadow-2xl border border-slate-200 dark:border-slate-800 max-h-[88vh] overflow-y-auto">
+      
+      <!-- मोडल हेडर -->
+      <div class="flex justify-between items-center border-b pb-4 dark:border-slate-800">
+        <div class="flex items-center gap-3">
+          <div class="w-10 h-10 rounded-xl bg-blue-100 dark:bg-blue-950 text-blue-600 flex items-center justify-center text-lg font-bold">
             <i class="fa-solid fa-id-card"></i>
           </div>
-          <div class="flex items-center gap-2 mb-2">
-            <span class="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded bg-blue-50 text-blue-600 dark:bg-blue-900/40">दस्तावेज सुधार</span>
-            <span class="text-xs text-slate-400">3 मिनट रीडिंग</span>
+          <div>
+            <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white">आधार सेवा केंद्र: मोबाइल व पता अपडेट</h3>
+            <p class="text-[11px] text-slate-500">घर बैठे ऑनलाइन पता बदलें और मोबाइल नंबर लिंक करने की संपूर्ण गाइड</p>
           </div>
-          <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">आधार कार्ड में पता (Address) ऑनलाइन बदलें</h3>
-          <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed mb-4">घर बैठे MyAadhaar पोर्टल से नया पता अपडेट करने और मोबाइल नंबर लिंकिंग की संपूर्ण आसान गाइड।</p>
         </div>
-        <button onclick="openModal('aadhaarModal')" class="w-full inline-flex items-center justify-between text-xs font-bold text-brand-600 hover:text-brand-700 dark:text-brand-400 pt-3 border-t border-slate-100 dark:border-slate-800 transition">
-          <span>स्टेप-बाय-स्टेप प्रक्रिया पढ़ें</span>
-          <i class="fa-solid fa-arrow-right"></i>
+        <button onclick="closeModals()" aria-label="Close Modal" class="text-slate-400 hover:text-slate-600 text-xl p-1">
+          <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
+
+      <!-- सुरक्षा अलर्ट (Anti-Fraud Banner) -->
+      <div class="mt-4 bg-rose-50 dark:bg-rose-950/40 p-3.5 rounded-2xl border border-rose-200 dark:border-rose-900/60 flex items-start gap-2.5">
+        <i class="fa-solid fa-shield-halved text-rose-600 text-base mt-0.5"></i>
+        <div class="text-[11px] sm:text-xs text-rose-800 dark:text-rose-300">
+          <strong>सुरक्षा चेतावनी:</strong> किसी भी अनजान व्यक्ति को आधार OTP या पैसे न भेजें। आधार में कोई भी बदलाव करने की सरकारी फीस केवल <strong>₹50</strong> है।
+        </div>
+      </div>
+
+      <!-- टैब स्विच बटन (मोबाइल नंबर vs पता) -->
+      <div class="flex gap-2 mt-5 p-1 bg-slate-100 dark:bg-slate-800 rounded-2xl">
+        <button id="tabBtnMobile" onclick="switchAadhaarTab('mobile')" class="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-blue-600 shadow-sm transition flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-mobile-screen-button"></i> मोबाइल नंबर अपडेट
+        </button>
+        <button id="tabBtnAddress" onclick="switchAadhaarTab('address')" class="flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 dark:text-slate-300 hover:text-blue-600 transition flex items-center justify-center gap-1.5">
+          <i class="fa-solid fa-house-chimney-user"></i> पता (Address) सुधार
+        </button>
+      </div>
+
+      <!-- ================= 1. मोबाइल नंबर अपडेट सेक्शन ================= -->
+      <div id="aadhaarMobileSection" class="mt-6 space-y-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        
+        <!-- तरीका 1: mAadhaar ऐप -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs">1</span>
+              तरीका 1: mAadhaar मोबाइल ऐप से स्लॉट बुक करें
+            </h4>
+            <span class="text-[10px] font-bold bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 px-2 py-0.5 rounded-md">मोबाइल ऐप</span>
+          </div>
+          <ol class="space-y-2 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
+            <li>Google Play Store या Apple App Store से <strong>mAadhaar</strong> आधिकारिक ऐप खोलें।</li>
+            <li><strong>'Book an Appointment'</strong> विकल्प पर क्लिक करके अपना मोबाइल नंबर और OTP दर्ज करें।</li>
+            <li><strong>'Aadhaar Update'</strong> चुनें, नया नंबर डालें और नजदीकी आधार केंद्र का दिन व समय (Slot) चुनें।</li>
+            <li>तय समय पर केंद्र जाकर बिना लाइन में लगे ₹50 देकर 5 मिनट में बायोमेट्रिक सत्यापन पूरा कराएं।</li>
+          </ol>
+        </div>
+
+        <!-- तरीका 2: डाकिया घर बुलाएं (IPPB) -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">2</span>
+              तरीका 2: डाकिया घर आकर नंबर जोड़ेगा (डोरस्टेप सेवा)
+            </h4>
+            <span class="text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 px-2 py-0.5 rounded-md">घर बैठे</span>
+          </div>
+          <ol class="space-y-2 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
+            <li>इंडिया पोस्ट सर्विस पोर्टल <strong>ccc.cept.gov.in</strong> पर जाएं।</li>
+            <li>नाम, पता और पिन कोड भरकर सर्विस में <strong>'IPPB - Aadhaar Services'</strong> चुनें।</li>
+            <li><strong>'Mobile/Email to Aadhaar Linking'</strong> पर टिक करें और OTP से रिक्वेस्ट सबमिट करें।</li>
+            <li>डाकिया फिंगरप्रिंट मशीन लेकर घर आएगा और ₹50 सरकारी शुल्क लेकर नंबर लिंक कर देगा।</li>
+          </ol>
+        </div>
+
+        <!-- मोबाइल अपडेट ऑफिशियल लिंक्स -->
+        <div class="pt-3 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
+          <a href="https://appointments.uidai.gov.in/bookappointment.aspx" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition text-xs sm:text-sm">
+            <i class="fa-solid fa-calendar-check"></i> आधार सेंटर अपॉइंटमेंट बुक करें
+          </a>
+          <a href="https://ccc.cept.gov.in/ServiceRequest/request.aspx" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition text-xs sm:text-sm">
+            <i class="fa-solid fa-house-user"></i> डाकिया घर बुलाने की रिक्वेस्ट करें
+          </a>
+        </div>
+      </div>
+
+      <!-- ================= 2. पता (Address) सुधार सेक्शन ================= -->
+      <div id="aadhaarAddressSection" class="hidden mt-6 space-y-5 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        
+        <!-- तरीका 1: दस्तावेज़ के साथ -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-blue-600 text-white flex items-center justify-center text-xs">1</span>
+              तरीका 1: एड्रेस प्रूफ दस्तावेज़ अपलोड करके
+            </h4>
+            <span class="text-[10px] font-bold bg-blue-100 text-blue-800 dark:bg-blue-950 dark:text-blue-300 px-2 py-0.5 rounded-md">सबसे तेज</span>
+          </div>
+          <ol class="space-y-2 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
+            <li><strong>myaadhaar.uidai.gov.in</strong> पर जाकर आधार नंबर और OTP से लॉगिन करें।</li>
+            <li>डैशबोर्ड पर <strong>'Address Update'</strong> चुनकर <strong>'Update Aadhaar Online'</strong> पर क्लिक करें।</li>
+            <li>नया पता भरें और वैध एड्रेस प्रूफ (बिजली बिल, वोटर आईडी, बैंक पासबुक या रेंट एग्रीमेंट) की साफ फोटो/PDF अपलोड करें।</li>
+            <li>₹50 का ऑनलाइन भुगतान करें और <strong>SRN नंबर</strong> वाली रसीद प्राप्त करें (3 से 7 दिनों में पता अपडेट हो जाता है)।</li>
+          </ol>
+        </div>
+
+        <!-- तरीका 2: मुखिया (HOF) आधारित -->
+        <div class="bg-slate-50 dark:bg-slate-800/50 p-4 sm:p-5 rounded-2xl border border-slate-200 dark:border-slate-700 space-y-2.5">
+          <div class="flex items-center justify-between">
+            <h4 class="text-sm sm:text-base font-bold text-slate-900 dark:text-white flex items-center gap-2">
+              <span class="w-6 h-6 rounded-full bg-emerald-600 text-white flex items-center justify-center text-xs">2</span>
+              तरीका 2: परिवार के मुखिया (Head of Family) के आधार द्वारा
+            </h4>
+            <span class="text-[10px] font-bold bg-emerald-100 text-emerald-800 dark:bg-emerald-950 dark:text-emerald-300 px-2 py-0.5 rounded-md">बिना प्रूफ</span>
+          </div>
+          <ol class="space-y-2 list-decimal list-inside text-slate-700 dark:text-slate-300 pl-1">
+            <li>यदि कोई एड्रेस प्रूफ नहीं है, तो लॉगिन करके <strong>'HOF based Address Update'</strong> चुनें।</li>
+            <li>परिवार के मुखिया (माता/पिता/पति) का आधार नंबर और संबंध चुनें।</li>
+            <li>₹50 का भुगतान करें। मुखिया को अपने MyAadhaar पोर्टल में 30 दिनों के अंदर रिक्वेस्ट को 'स्वीकार' (Approve) करना होगा।</li>
+          </ol>
+        </div>
+
+        <!-- पता अपडेट ऑफिशियल लिंक्स -->
+        <div class="pt-3 border-t dark:border-slate-800 flex flex-col sm:flex-row gap-3">
+          <a href="https://myaadhaar.uidai.gov.in" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl shadow-md transition text-xs sm:text-sm">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> MyAadhaar पर पता बदलें
+          </a>
+          <a href="https://myaadhaar.uidai.gov.in/check-aadhaar-validity" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-slate-800 hover:bg-slate-700 text-white font-bold py-3 px-4 rounded-xl transition text-xs sm:text-sm">
+            <i class="fa-solid fa-magnifying-glass"></i> स्टेटस चेक करें (SRN ट्रैकिंग)
+          </a>
+        </div>
+      </div>
+
+    </div>
 
       <!-- Card 2: Ayushman -->
       <div class="service-card bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm hover:shadow-xl hover:border-brand-500 transition-all duration-300 flex flex-col justify-between" data-title="आयुष्मान कार्ड 5 लाख मुफ्त इलाज e-kyc ऑनलाइन">
@@ -1920,6 +2035,25 @@
         }
       }
     });
+    // आधार मोडल टैब स्विच फंक्शन
+    function switchAadhaarTab(tab) {
+      const mobileSection = document.getElementById('aadhaarMobileSection');
+      const addressSection = document.getElementById('aadhaarAddressSection');
+      const btnMobile = document.getElementById('tabBtnMobile');
+      const btnAddress = document.getElementById('tabBtnAddress');
+
+      if (tab === 'mobile') {
+        mobileSection.classList.remove('hidden');
+        addressSection.classList.add('hidden');
+        btnMobile.className = "flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-blue-600 shadow-sm transition flex items-center justify-center gap-1.5";
+        btnAddress.className = "flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 dark:text-slate-300 hover:text-blue-600 transition flex items-center justify-center gap-1.5";
+      } else {
+        addressSection.classList.remove('hidden');
+        mobileSection.classList.add('hidden');
+        btnAddress.className = "flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-white bg-blue-600 shadow-sm transition flex items-center justify-center gap-1.5";
+        btnMobile.className = "flex-1 py-2.5 px-3 rounded-xl font-bold text-xs sm:text-sm text-slate-600 dark:text-slate-300 hover:text-blue-600 transition flex items-center justify-center gap-1.5";
+      }
+    }
   </script>
   <!-- कस्टम विज्ञापन स्क्रिप्ट -->
   <script src="custom-ads.js" defer></script>
