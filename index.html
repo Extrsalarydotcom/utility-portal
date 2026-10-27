@@ -2021,71 +2021,78 @@
   </script>
   <!-- कस्टम विज्ञापन स्क्रिप्ट -->
   <script src="custom-ads.js" defer></script>
-  <!-- ताज़ा न्यूज़ विजेट (Jan Suvidha Hub) -->
-<div id="jan-suvidha-news" style="max-width: 800px; margin: 25px auto; font-family: system-ui, -apple-system, sans-serif; padding: 0 10px;">
+ <!-- ताज़ा न्यूज़ विजेट (Jan Suvidha Hub) -->
+<div id="jan-suvidha-news" style="max-width: 800px; margin: 30px auto; font-family: system-ui, -apple-system, sans-serif; padding: 0 12px;">
   <div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #e53935; padding-bottom: 8px; margin-bottom: 15px;">
     <h3 style="margin: 0; color: #222; font-size: 18px; display: flex; align-items: center; gap: 8px;">
-      🔴 ताज़ा एवं बड़ी खबरें (Live Updates)
+      🔴 देश और दुनिया की ताज़ा खबरें (Live Updates)
     </h3>
-    <button onclick="fetchLiveNews()" style="background: #e53935; color: #ffffff; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: 500;">रिफ्रेश करें ⟳</button>
+    <button onclick="fetchJanSuvidhaNews()" style="background: #e53935; color: #fff; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-size: 13px; font-weight: bold;">रिफ्रेश ⟳</button>
   </div>
 
-  <div id="news-list" style="display: flex; flex-direction: column; gap: 12px;">
-    <div style="color: #666; font-size: 14px;">ताज़ा खबरें लोड हो रही हैं...</div>
+  <div id="news-container" style="display: flex; flex-direction: column; gap: 12px;">
+    <div id="news-status" style="color: #666; font-size: 14px; padding: 12px; background: #f5f5f5; border-radius: 6px;">ताज़ा खबरें लोड की जा रही हैं...</div>
   </div>
 </div>
 
 <script>
-async function fetchLiveNews() {
-  const newsList = document.getElementById('news-list');
-  newsList.innerHTML = '<div style="color: #666; font-size: 14px;">अपडेट हो रहा है, कृपया प्रतीक्षा करें...</div>';
+async function fetchJanSuvidhaNews() {
+  const container = document.getElementById('news-container');
+  container.innerHTML = '<div style="color: #666; font-size: 14px; padding: 12px; background: #f5f5f5; border-radius: 6px;">लाइव अपडेट लोड हो रहा है...</div>';
 
-  // हर बार ताज़ा न्यूज़ लाने के लिए टाइमस्टैम्प (Cache-Buster)
-  const rssUrl = 'https://news.google.com/rss?hl=hi&gl=IN&ceid=IN:hi';
-  const targetUrl = rssUrl + '&t=' + Date.now();
+  const googleRss = 'https://news.google.com/rss?hl=hi&gl=IN&ceid=IN:hi';
+  const timestamp = Date.now();
 
-  // सुरक्षित और फ़ास्ट प्रॉक्सी (ताकि ब्राउज़र ब्लॉक न करे)
-  const proxyEndpoints = [
-    `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`,
-    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`
+  // 3 अलग-अलग हाई-स्पीड रास्ते (ताकि गिटहब पेजेस पर कभी न रुके)
+  const sources = [
+    `https://api.allorigins.win/get?url=${encodeURIComponent(googleRss)}&t=${timestamp}`,
+    `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(googleRss)}`,
+    `https://corsproxy.io/?${encodeURIComponent(googleRss + '&t=' + timestamp)}`
   ];
 
-  let xmlData = null;
+  let xmlString = null;
 
-  for (const endpoint of proxyEndpoints) {
+  for (let url of sources) {
     try {
-      const response = await fetch(endpoint);
+      const response = await fetch(url);
       if (response.ok) {
-        xmlData = await response.text();
-        if (xmlData && xmlData.includes('<item>')) break;
+        if (url.includes('allorigins')) {
+          const resJson = await response.json();
+          xmlString = resJson.contents;
+        } else {
+          xmlString = await response.text();
+        }
+        if (xmlString && xmlString.includes('<item>')) {
+          break; // डेटा मिल गया
+        }
       }
-    } catch (e) {
-      // अगर पहला प्रॉक्सी काम न करे तो दूसरा अपने आप चलेगा
+    } catch (err) {
+      // अगला सर्वर आज़माएगा
     }
   }
 
-  if (!xmlData) {
-    newsList.innerHTML = '<div style="color: #d32f2f; font-size: 14px; background: #ffebee; padding: 10px; border-radius: 6px;">लाइव न्यूज़ लोड नहीं हो पाई। कृपया "रिफ्रेश करें" बटन दबाएँ।</div>';
+  if (!xmlString) {
+    container.innerHTML = '<div style="color: #c62828; background: #ffebee; padding: 12px; border-radius: 6px; font-size: 14px;">लाइव न्यूज़ लोड नहीं हो सकी। कृपया "रिफ्रेश ⟳" बटन दबाएँ।</div>';
     return;
   }
 
   try {
     const parser = new DOMParser();
-    const xmlDoc = parser.parseFromString(xmlData, 'text/xml');
+    const xmlDoc = parser.parseFromString(xmlString, 'text/xml');
     const items = xmlDoc.querySelectorAll('item');
 
     if (!items || items.length === 0) {
-      newsList.innerHTML = '<div style="color: #666; font-size: 14px;">फिलहाल कोई नई खबर नहीं मिली।</div>';
+      container.innerHTML = '<div style="color: #666; padding: 10px;">फिलहाल कोई खबर उपलब्ध नहीं है।</div>';
       return;
     }
 
-    newsList.innerHTML = '';
-    
+    container.innerHTML = '';
+
     // टॉप 6 ताज़ा खबरें
     Array.from(items).slice(0, 6).forEach(item => {
-      const title = item.querySelector('title') ? item.querySelector('title').textContent : 'ताज़ा समाचार';
-      const link = item.querySelector('link') ? item.querySelector('link').textContent : '#';
-      const pubDate = item.querySelector('pubDate') ? item.querySelector('pubDate').textContent : '';
+      let title = item.querySelector('title') ? item.querySelector('title').textContent : 'ताज़ा खबर';
+      let link = item.querySelector('link') ? item.querySelector('link').textContent : '#';
+      let pubDate = item.querySelector('pubDate') ? item.querySelector('pubDate').textContent : '';
 
       let timeText = 'अभी-अभी';
       if (pubDate) {
@@ -2107,15 +2114,15 @@ async function fetchLiveNews() {
           <a href="${link}" target="_blank" rel="noopener noreferrer" style="color: #e53935; text-decoration: none; font-weight: bold;">पूरा पढ़ें →</a>
         </div>
       `;
-      newsList.appendChild(card);
+      container.appendChild(card);
     });
-  } catch (err) {
-    newsList.innerHTML = '<div style="color: #d32f2f; font-size: 14px;">डेटा प्रोसेस करने में समस्या आई।</div>';
+  } catch (e) {
+    container.innerHTML = '<div style="color: #c62828; padding: 10px;">डेटा फ़ॉर्मैटिंग में समस्या आई।</div>';
   }
 }
 
-// पेज लोड होते ही रन होगा
-fetchLiveNews();
+// पेज लोड होते ही रन करें
+fetchJanSuvidhaNews();
 </script>
 </body>
 </html>
